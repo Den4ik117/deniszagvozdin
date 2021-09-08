@@ -390,6 +390,18 @@ body {
   font: 400 1.7rem/2.7rem "PT Sans", "Arial", sans-serif;
   margin-bottom: 16px;
 }
+.text .text__list {
+  margin-left: 16px;
+  list-style: disc inside;
+  margin-bottom: 16px;
+}
+.text .text__list li {
+  line-height: 1.5;
+}
+.text iframe {
+  display: block;
+  margin-top: 16px;
+}
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   #header .header__row {

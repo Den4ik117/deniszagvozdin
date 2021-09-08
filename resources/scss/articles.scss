@@ -338,6 +338,21 @@ body {
     font: 400 1.7rem/2.7rem $ptsans-font-family;
     margin-bottom: 16px;
   }
+
+  .text__list {
+    margin-left: 16px;
+    list-style: disc inside;
+    margin-bottom: 16px;
+  }
+
+  .text__list li {
+    line-height: 1.5;
+  }
+
+  iframe {
+    display: block;
+    margin-top: 16px;
+  }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -376,25 +391,25 @@ body {
     height: 100%;
     background-color: #fff;
     z-index: 2;
-  
+
     .menu__image {
       position: absolute;
       top: 30px;
       right: 30px;
       cursor: pointer;
     }
-  
+
     .menu__links {
       position: absolute;
       top: 90px;
       right: 30px;
       text-align: right;
     }
-    
+
     .menu__link {
       margin: 8px 0;
     }
-  
+
     .menu__link a {
       text-decoration: none;
       color: #333;
@@ -435,25 +450,25 @@ body {
     height: 100%;
     background-color: #fff;
     z-index: 2;
-  
+
     .menu__image {
       position: absolute;
       top: 30px;
       right: 30px;
       cursor: pointer;
     }
-  
+
     .menu__links {
       position: absolute;
       top: 90px;
       right: 30px;
       text-align: right;
     }
-    
+
     .menu__link {
       margin: 8px 0;
     }
-  
+
     .menu__link a {
       text-decoration: none;
       color: #333;
@@ -494,25 +509,25 @@ body {
     height: 100%;
     background-color: #fff;
     z-index: 2;
-  
+
     .menu__image {
       position: absolute;
       top: 30px;
       right: 30px;
       cursor: pointer;
     }
-  
+
     .menu__links {
       position: absolute;
       top: 90px;
       right: 30px;
       text-align: right;
     }
-    
+
     .menu__link {
       margin: 8px 0;
     }
-  
+
     .menu__link a {
       text-decoration: none;
       color: #333;
