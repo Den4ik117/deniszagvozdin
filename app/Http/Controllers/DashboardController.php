@@ -7,12 +7,17 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:viewing');
+    }
+
     public function index()
     {
-        if (!auth()->user()->hasPermissionTo('view.dashboard'))
-        {
-            return view('guest');
-        }
+//        if (!auth()->user()->hasPermissionTo('view.dashboard'))
+//        {
+//            return view('guest');
+//        }
 
         $subjects = [
             1 => 'Задать вопрос',
