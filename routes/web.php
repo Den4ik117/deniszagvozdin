@@ -4,12 +4,13 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ArticleController;
 
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::post('/', [IndexController::class, 'store'])->name('index.store');
 
-Route::get('/articles', function () {
+Route::get('/blog', function () {
     return view('articles');
 })->name('articles');
 
@@ -23,6 +24,8 @@ Route::get('/article', function () {
 
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('articles', ArticleController::class);
 });
 
 require __DIR__.'/auth.php';
