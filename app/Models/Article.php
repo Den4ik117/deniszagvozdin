@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+//use App\Models\User;
 
 class Article extends Model
 {
@@ -18,6 +19,7 @@ class Article extends Model
         'og_description',
         'user_id',
         'content',
+        'short_content'
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -25,5 +27,10 @@ class Article extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

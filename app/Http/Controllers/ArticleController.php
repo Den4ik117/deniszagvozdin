@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\UploadImageService;
 use Illuminate\Http\Request;
 
 use App\Models\Article;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:articles.view')->only('index', 'show');
+        $this->middleware('can:articles.create')->only('create', 'store');
+        $this->middleware('can:articles.update')->only('edit', 'update');
+        $this->middleware('can:articles.delete')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,17 +47,32 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required',
             'description' => 'required',
             'og_title' => 'required',
             'og_description' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'short_content' => 'required|max:256',
+            'image' => 'required|image'
         ]);
 
-        $validated['user_id'] = auth()->user()->id;
+        $article = Article::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'og_title' => $request->input('og_title'),
+            'og_description' => $request->input('og_description'),
+            'content' => $request->input('content'),
+            'short_content' => $request->input('short_content'),
+            'user_id' => auth()->user()->id,
+        ]);
 
-        Article::create($validated);
+        if ($request->hasFile('image'))
+        {
+            $imageUrl = UploadImageService::upload($request->image, $article->id);
+            $article->image_url = $imageUrl;
+            $article->save();
+        }
 
         return back()->with('success', __('Article has been stored'));
     }
@@ -59,9 +83,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $article = Article::where('slug', $slug)->firstOrFail();
+        $article = Article::findOrFail($id);
 
         return view('article.show', compact('article'));
     }
@@ -94,7 +118,8 @@ class ArticleController extends Controller
             'description' => 'required',
             'og_title' => 'required',
             'og_description' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'short_content' => 'required|max:255'
         ]);
 
         Article::findOrFail($id)->update($validated);

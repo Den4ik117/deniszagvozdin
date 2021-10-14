@@ -28,5 +28,5 @@
   </div>
 @endsection
 
-@section('content'){!! $article->content !!}@endsection
+@section('content'){!! $html !!}@endsection
 

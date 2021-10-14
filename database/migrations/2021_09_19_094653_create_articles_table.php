@@ -22,6 +22,8 @@ class CreateArticlesTable extends Migration
             $table->string('og_description');
             $table->foreignId('user_id');
             $table->text('content');
+            $table->string('short_content');
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }

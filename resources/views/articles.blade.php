@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/articles.css">
   <title>Denis Zagvozdin | Блог</title>
 </head>
@@ -49,84 +49,21 @@
   <section id="articles">
     <div class="container">
       <div class="articles__items">
-        <div class="articles__item">
-          <div class="articles__image" style="background-image: url(/images/main_background_image.jpg);"><a href="/article"></a></div>
-          <div class="articles__description">
-            <div class="articles__text">
-              <a class="articles__title" href="/article">Lorem ipsum dolor sit amet consectetur, adipisicing elit</a>
-              <div class="articles__part">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias nostrum repellendus! Dicta corporis, non quam voluptate accusantium aperiam exercitationem voluptatibus sequi atque sunt consequuntur eveniet nostrum dolorem asperiores...</div>
-            </div>
-            <div class="articles__info">
-              <span>10.06.2021</span>
-              <span>Admin</span>
-            </div>
-          </div>
-        </div>
-        <div class="articles__item">
-          <div class="articles__image" style="background-image: url(/images/main_background_image.jpg);"><a href="#"></a></div>
-          <div class="articles__description">
-            <div class="articles__text">
-              <a class="articles__title" href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit</a>
-              <div class="articles__part">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias nostrum repellendus! Dicta corporis, non quam voluptate accusantium aperiam exercitationem voluptatibus sequi atque sunt consequuntur eveniet nostrum dolorem asperiores...</div>
-            </div>
-            <div class="articles__info">
-              <span>10.06.2021</span>
-              <span>Admin</span>
+        @foreach($articles as $article)
+          <div class="articles__item">
+            <div class="articles__image" style="background-image: url({{ $article->image_url }});"><a href="{{ route('article', $article->slug) }}"></a></div>
+            <div class="articles__description">
+              <div class="articles__text">
+                <a class="articles__title" href="{{ route('article', $article->slug) }}">{{ $article->title }}</a>
+                <div class="articles__part">{{ $article->short_content }}</div>
+              </div>
+              <div class="articles__info">
+                <span>{{ $article->created_at->format('d.m.Y') }}</span>
+                <span>{{ $article->user->fullName }}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="articles__item">
-          <div class="articles__image" style="background-image: url(/images/main_background_image.jpg);"><a href="#"></a></div>
-          <div class="articles__description">
-            <div class="articles__text">
-              <a class="articles__title" href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit</a>
-              <div class="articles__part">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias nostrum repellendus! Dicta corporis, non quam voluptate accusantium aperiam exercitationem voluptatibus sequi atque sunt consequuntur eveniet nostrum dolorem asperiores...</div>
-            </div>
-            <div class="articles__info">
-              <span>10.06.2021</span>
-              <span>Admin</span>
-            </div>
-          </div>
-        </div>
-        <div class="articles__item">
-          <div class="articles__image" style="background-image: url(/images/main_background_image.jpg);"><a href="#"></a></div>
-          <div class="articles__description">
-            <div class="articles__text">
-              <a class="articles__title" href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit</a>
-              <div class="articles__part">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias nostrum repellendus! Dicta corporis, non quam voluptate accusantium aperiam exercitationem voluptatibus sequi atque sunt consequuntur eveniet nostrum dolorem asperiores...</div>
-            </div>
-            <div class="articles__info">
-              <span>10.06.2021</span>
-              <span>Admin</span>
-            </div>
-          </div>
-        </div>
-        <div class="articles__item">
-          <div class="articles__image" style="background-image: url(/images/main_background_image.jpg);"><a href="#"></a></div>
-          <div class="articles__description">
-            <div class="articles__text">
-              <a class="articles__title" href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit</a>
-              <div class="articles__part">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias nostrum repellendus! Dicta corporis, non quam voluptate accusantium aperiam exercitationem voluptatibus sequi atque sunt consequuntur eveniet nostrum dolorem asperiores...</div>
-            </div>
-            <div class="articles__info">
-              <span>10.06.2021</span>
-              <span>Admin</span>
-            </div>
-          </div>
-        </div>
-        <div class="articles__item">
-          <div class="articles__image" style="background-image: url(/images/main_background_image.jpg);"><a href="#"></a></div>
-          <div class="articles__description">
-            <div class="articles__text">
-              <a class="articles__title" href="#">Lorem ipsum dolor sit amet consectetur, adipisicing elit</a>
-              <div class="articles__part">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias nostrum repellendus! Dicta corporis, non quam voluptate accusantium aperiam exercitationem voluptatibus sequi atque sunt consequuntur eveniet nostrum dolorem asperiores...</div>
-            </div>
-            <div class="articles__info">
-              <span>10.06.2021</span>
-              <span>Admin</span>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>

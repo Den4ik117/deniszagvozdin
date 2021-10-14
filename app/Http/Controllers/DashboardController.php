@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:viewing');
+//        $this->middleware('can:viewing');
     }
 
     public function index()

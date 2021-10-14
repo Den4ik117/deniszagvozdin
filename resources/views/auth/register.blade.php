@@ -1,65 +1,74 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.auth')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('title', 'Регистрация')
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+@section('content')
+  <div class="row h-100">
+    <div class="col-lg-5 col-12">
+      <div id="auth-left">
+        <div class="auth-logo">
+          <a href="{{ route('index') }}"><img src="{{ asset('images/logo.png') }}" alt="Logo"></a>
+        </div>
+        <h1 class="auth-title">Регистрация</h1>
+        <p class="auth-subtitle mb-5">Зарегистрируйтесь, чтобы пользоваться панелью администратора</p>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+        @if($errors->any())
+          <div class="alert alert-danger" role="alert">
+            {{ $errors->first() }}
+          </div>
+        @endif
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+        <form action="{{ route('register') }}" method="POST">
+          @csrf
+
+          <div class="form-group position-relative has-icon-left mb-4">
+            <input type="text" class="form-control form-control-xl" name="name" placeholder="Имя" autofocus>
+            <div class="form-control-icon">
+              <i class="bi bi-person"></i>
             </div>
+          </div>
 
-            <div class="mt-4">
-                <x-label for="surname" :value="__('Surname')" />
-
-                <x-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required />
+          <div class="form-group position-relative has-icon-left mb-4">
+            <input type="text" class="form-control form-control-xl" name="surname" placeholder="Фамилия">
+            <div class="form-control-icon">
+              <i class="bi bi-person"></i>
             </div>
+          </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+          <div class="form-group position-relative has-icon-left mb-4">
+            <input type="email" class="form-control form-control-xl" name="email" placeholder="Почта">
+            <div class="form-control-icon">
+              <i class="bi bi-envelope"></i>
             </div>
+          </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+          <div class="form-group position-relative has-icon-left mb-4">
+            <input type="password" class="form-control form-control-xl" name="password" placeholder="Пароль" autocomplete="new-password">
+            <div class="form-control-icon">
+              <i class="bi bi-shield-lock"></i>
             </div>
+          </div>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+          <div class="form-group position-relative has-icon-left mb-4">
+            <input type="password" class="form-control form-control-xl" name="password_confirmation" placeholder="Повторите пароль">
+            <div class="form-control-icon">
+              <i class="bi bi-shield-lock"></i>
             </div>
+          </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
+          <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Зарегистрироваться</button>
         </form>
-    </x-auth-card>
-</x-guest-layout>
+
+        <div class="text-center mt-5 text-lg fs-4">
+          <p class="text-gray-600">Уже есть аккаунт? <a href="{{ route('login') }}" class="font-bold">Авторизоваться</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7 d-none d-lg-block">
+      <div id="auth-right">
+
+      </div>
+    </div>
+  </div>
+@endsection

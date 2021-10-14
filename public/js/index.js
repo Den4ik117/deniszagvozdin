@@ -153,19 +153,6 @@ function lazyScroll() {
 
 /***/ }),
 
-/***/ "./resources/scss/index-sm.scss":
-/*!**************************************!*\
-  !*** ./resources/scss/index-sm.scss ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./resources/scss/index-xs.scss":
 /*!**************************************!*\
   !*** ./resources/scss/index-xs.scss ***!
@@ -179,10 +166,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/dashboard.css":
-/*!*************************************!*\
-  !*** ./resources/css/dashboard.css ***!
-  \*************************************/
+/***/ "./resources/scss/bootstrap.scss":
+/*!***************************************!*\
+  !*** ./resources/scss/bootstrap.scss ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/scss/app.scss":
+/*!*********************************!*\
+  !*** ./resources/scss/app.scss ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/scss/pages/auth.scss":
+/*!****************************************!*\
+  !*** ./resources/scss/pages/auth.scss ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -196,19 +209,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************!*\
   !*** ./resources/scss/articles.scss ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/auth.scss":
-/*!**********************************!*\
-  !*** ./resources/scss/auth.scss ***!
-  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -247,6 +247,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ "./resources/scss/index-md.scss":
 /*!**************************************!*\
   !*** ./resources/scss/index-md.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/scss/index-sm.scss":
+/*!**************************************!*\
+  !*** ./resources/scss/index-sm.scss ***!
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -344,14 +357,15 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/index": 0,
+/******/ 			"css/index-sm": 0,
 /******/ 			"css/index-md": 0,
 /******/ 			"css/index-lg": 0,
 /******/ 			"css/index-xl": 0,
-/******/ 			"css/auth": 0,
 /******/ 			"css/articles": 0,
 /******/ 			"css/index-xs": 0,
-/******/ 			"css/index-sm": 0,
-/******/ 			"css/dashboard": 0
+/******/ 			"css/auth": 0,
+/******/ 			"css/app": 0,
+/******/ 			"css/bootstrap": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -401,15 +415,16 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/js/index.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/scss/articles.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/scss/auth.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/scss/index-xl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/scss/index-lg.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/scss/index-md.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/scss/index-sm.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/scss/index-xs.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/auth","css/articles","css/index-xs","css/index-sm","css/dashboard"], () => (__webpack_require__("./resources/css/dashboard.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/js/index.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/articles.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/index-xl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/index-lg.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/index-md.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/index-sm.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/index-xs.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/bootstrap.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/index-xs","css/auth","css/app","css/bootstrap"], () => (__webpack_require__("./resources/scss/pages/auth.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
