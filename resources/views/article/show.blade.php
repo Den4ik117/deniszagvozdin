@@ -24,7 +24,7 @@
   </div>
   <div class="main__info">
     <span>{{ $article->created_at->format('d.m.Y') }}</span>
-    <span>{{ auth()->user()->name . ' ' . auth()->user()->surname }}</span>
+    <span>{{ $article->user->fullName }}</span>
   </div>
 @endsection
 
