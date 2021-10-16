@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\JSON2HTMLService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
@@ -19,7 +20,7 @@ class Article extends Model
         'og_description',
         'user_id',
         'content',
-        'short_content'
+        'short_content',
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -32,5 +33,10 @@ class Article extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getHtmlContentAttribute()
+    {
+        return JSON2HTMLService::decode(json_decode($this->content, true));
     }
 }
