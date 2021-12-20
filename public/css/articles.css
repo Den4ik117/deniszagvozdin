@@ -379,23 +379,29 @@ body {
 }
 
 .text img {
-  margin-bottom: 16px;
+  width: 100%;
 }
 .text h2 {
   font: 700 2.4rem/2.8rem "PT Sans", "Arial", sans-serif;
   margin-bottom: 8px;
   color: #269865;
 }
-.text .text__simple_text {
+.text p {
   font: 400 1.7rem/2.7rem "PT Sans", "Arial", sans-serif;
   margin-bottom: 16px;
 }
-.text .text__list {
+.text ul {
   margin-left: 16px;
   list-style: disc inside;
   margin-bottom: 16px;
 }
-.text .text__list li {
+.text ol {
+  margin-left: 16px;
+  list-style: numeric inside;
+  margin-bottom: 16px;
+}
+.text ul > li,
+.text ol > li {
   line-height: 1.5;
 }
 .text iframe {
@@ -520,6 +526,13 @@ body {
     grid-template-columns: 1fr;
     grid-gap: 20px;
     margin: 0 20px;
+  }
+
+  #article {
+    padding: 12px;
+  }
+  #article .article__row {
+    grid-template-columns: 1fr;
   }
 
   #menu {
