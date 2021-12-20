@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('header')
   <div class="flex items-center justify-between py-2">
@@ -21,7 +21,7 @@
           <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z"/>
         </svg>
       </div>
-      
+
       <div class="px-4 py-2 -mx-3">
         <div class="mx-3">
           <span class="font-semibold text-green-500">Успех</span>
@@ -40,7 +40,7 @@
           <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
               <div class="grid grid-cols-6 gap-6">
-  
+
                 <div class="col-span-6">
                   <label class="block text-sm font-medium text-gray-700" for="email">Почта, указанная при регистрации:</label>
                   <input id="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="email" name="email" autocomplete="email" value="{{ old('email') }}" autofocus required>

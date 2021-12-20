@@ -1,428 +1,614 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="ru">
 
-@section('header')
-  <div class="flex items-center justify-between py-2">
-    <div class="font-bold">
-      <span>Главная</span>
-      <a class="text-indigo-400 font-bold hover:underline" href="#">[назад]</a>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denis Zagvozdin | Создать сайт быстро и качественно</title>
+    <meta name="description"
+        content="Сайт Дениса Загвоздина. Создание сайтов: лендинг, сайт-визитка, сайт для предпринимателя, сайт для компании, блог">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+        }
+
+        #preloader img {
+            display: block;
+            margin: 0 auto;
+            margin-top: 40vh;
+            width: 48px;
+        }
+
+        body {
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/index-xl.css" media="screen and (min-width: 1200px)">
+    <link rel="stylesheet" href="/css/index-lg.css" media="screen and (min-width: 992px) and (max-width: 1199px)">
+    <link rel="stylesheet" href="/css/index-md.css" media="screen and (min-width: 768px) and (max-width: 991px)">
+    <link rel="stylesheet" href="/css/index-sm.css" media="screen and (min-width: 576px) and (max-width: 767px)">
+    <link rel="stylesheet" href="/css/index-xs.css" media="screen and (max-width: 575px)">
+</head>
+
+<body class="scrollbox">
+    <h1 style="position: absolute; top: -100px;">Создать сайт или лендинг быстро, качественно и недорого</h1>
+    <div id="preloader">
+        <img src="/images/loading.gif" alt="Loading...">
     </div>
-    <a class="create-btn bg-green-500 text-white font-semibold py-1 px-2 hover:bg-green-600 rounded text-sm" href="#">
-      <span class="block sm:hidden">＋</span>
-      <span class="hidden sm:block">Создать</span>
-    </a>
-  </div>
-@endsection
+    <script type="text/javascript">
+        var preloader = document.getElementById('preloader');
 
-@section('content')
-  <div class="mt-6">
-      {{-- <div class="mt-5 md:mt-0"> --}}
-        <form action="#" method="POST">
-          <div class="shadow overflow-hidden sm:rounded-md">
-            <div class="px-4 py-5 bg-white sm:p-6">
-              <div class="grid sm:grid-cols-2 gap-4 text-center">
-                
-                <a class="block bg-green-500 text-white font-semibold py-1 px-2 hover:bg-green-600 rounded text-sm" href="{{ route('login') }}">
-                  Авторизоваться
-                </a>
-                <a class="block bg-green-500 text-white font-semibold py-1 px-2 hover:bg-green-600 rounded text-sm" href="{{ route('login') }}">
-                  Авторизоваться
-                </a>
-                <a class="block bg-green-500 text-white font-semibold py-1 px-2 hover:bg-green-600 rounded text-sm" href="{{ route('login') }}">
-                  Авторизоваться
-                </a>
-                <a class="block bg-green-500 text-white font-semibold py-1 px-2 hover:bg-green-600 rounded text-sm" href="{{ route('login') }}">
-                  Авторизоваться
-                </a>
-
-              </div>
-            </div>
-          </div>
-        </form>
-      {{-- </div> --}}
-  </div>
-
-  {{-- <div class="mt-6 bg-white rounded shadow overflow-hidden">
-    <div class="bg-gray-50 px-2 sm:px-4 py-3 border-b border-gray-200 text-xs font-medium text-gray-500 uppercase tracking-wider">Название формы</div>
-    <div class="px-2 sm:px-4 pt-2">
-      <form method="POST">
-        <div class="mb-2">
-          <label class="text-sm text-gray-600">Введите имя:</label>
-          <input type="text" name="name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 transition-colors duration-200 ease-in-out">
-        </div>
-        <div class="mb-2">
-          <label class="text-sm text-gray-600">Введите фамилию:</label>
-          <input type="text" name="surname" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 transition-colors duration-200 ease-in-out">
-        </div>
-
-        <div class="text-right">
-          <button class="my-2 text-white bg-green-500 border-0 py-1 px-2 focus:outline-none hover:bg-green-600 rounded font-bold">Сохранить</button>
-        </div>
-      </form>
-    </div>
-  </div> --}}
-  <div class="mt-6">
-    <div class="md:grid md:grid-cols-4 md:gap-6">
-      {{-- <div class="md:col-span-1">
-        <div class="px-4 sm:px-0">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-          <p class="mt-1 text-sm text-gray-600">
-            Use a permanent address where you can receive mail.
-          </p>
-        </div>
-      </div> --}}
-      <div class="mt-5 md:mt-0 md:col-span-4">
-        <form action="#" method="POST">
-          <div class="shadow overflow-hidden sm:rounded-md">
-            <div class="px-4 py-5 bg-white sm:p-6">
-              <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                  <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-  
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-  
-                <div class="col-span-6 sm:col-span-4">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                  <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-  
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
-                  <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
-                  </select>
-                </div>
-  
-                <div class="col-span-6">
-                  <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                  <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-  
-                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                  <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                  <input type="text" name="city" id="city" autocomplete="address-level2" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-  
-                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
-                  <input type="text" name="region" id="region" autocomplete="address-level1" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-  
-                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-                  <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-              </div>
-            </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button type="submit" class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Save
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="flex flex-col mt-6">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Name
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Title
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Status
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Role
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm font-medium text-gray-900">Dmitry Vinogradov</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">Best employee</div>  
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    Active
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  Developer
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap flex gap-2">
-                  <a class="bg-yellow-500 text-white font-semibold py-1 px-2 hover:bg-yellow-600 rounded text-xs" href="#">
-                    Редактировать
-                  </a>
-                  <a class="bg-blue-500 text-white font-semibold py-1 px-2 hover:bg-blue-600 rounded text-xs" href="#">
-                    Посмотреть
-                  </a>
-                  <button class="bg-red-500 text-white font-semibold py-1 px-2 hover:bg-red-600 rounded text-xs">
-                    Удалить
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm font-medium text-gray-900">Dmitry Vinogradov</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">Best employee</div>  
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    Active
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  Developer
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap flex gap-2">
-                  <a class="bg-yellow-500 text-white font-semibold py-1 px-2 hover:bg-yellow-600 rounded text-xs" href="#">
-                    Редактировать
-                  </a>
-                  <a class="bg-blue-500 text-white font-semibold py-1 px-2 hover:bg-blue-600 rounded text-xs" href="#">
-                    Посмотреть
-                  </a>
-                  <button class="bg-red-500 text-white font-semibold py-1 px-2 hover:bg-red-600 rounded text-xs">
-                    Удалить
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm font-medium text-gray-900">Dmitry Vinogradov</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">Best employee</div>  
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    Active
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  Developer
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap flex gap-2">
-                  <a class="bg-yellow-500 text-white font-semibold py-1 px-2 hover:bg-yellow-600 rounded text-xs" href="#">
-                    Редактировать
-                  </a>
-                  <a class="bg-blue-500 text-white font-semibold py-1 px-2 hover:bg-blue-600 rounded text-xs" href="#">
-                    Посмотреть
-                  </a>
-                  <button class="bg-red-500 text-white font-semibold py-1 px-2 hover:bg-red-600 rounded text-xs">
-                    Удалить
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm font-medium text-gray-900">Dmitry Vinogradov</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">Best employee</div>  
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    Active
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  Developer
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap flex gap-2">
-                  <a class="bg-yellow-500 text-white font-semibold py-1 px-2 hover:bg-yellow-600 rounded text-xs" href="#">
-                    Редактировать
-                  </a>
-                  <a class="bg-blue-500 text-white font-semibold py-1 px-2 hover:bg-blue-600 rounded text-xs" href="#">
-                    Посмотреть
-                  </a>
-                  <button class="bg-red-500 text-white font-semibold py-1 px-2 hover:bg-red-600 rounded text-xs">
-                    Удалить
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm font-medium text-gray-900">Dmitry Vinogradov</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">Best employee</div>  
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    Active
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  Developer
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap flex gap-2">
-                  <a class="bg-yellow-500 text-white font-semibold py-1 px-2 hover:bg-yellow-600 rounded text-xs" href="#">
-                    Редактировать
-                  </a>
-                  <a class="bg-blue-500 text-white font-semibold py-1 px-2 hover:bg-blue-600 rounded text-xs" href="#">
-                    Посмотреть
-                  </a>
-                  <button class="bg-red-500 text-white font-semibold py-1 px-2 hover:bg-red-600 rounded text-xs">
-                    Удалить
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="modal fixed w-full h-full top-0 left-0 items-center justify-center py-4 hidden">
-    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
-    
-    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 max-h-full overflow-y-auto">
-      
-      {{-- <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
-        <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-          <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-        </svg>
-        <span class="text-sm">(Esc)</span>
-      </div> --}}
-
-      <!-- Add margin if you want to see some of the overlay behind the modal-->
-      <div class="modal-content text-left">
-        <!--Title-->
-        <div class="flex justify-between items-center py-4 px-6 pb-3 bg-gray-50">
-          <p class="text-xl font-bold">Простая форма</p>
-          <div class="modal-close cursor-pointer z-50">
-            <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-              <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
-            </svg>
-          </div>
-        </div>
-
-        <!--Body-->
-        <div class="">
-          <div class="md:grid md:grid-cols-4 md:gap-6">
-            {{-- <div class="md:col-span-1">
-              <div class="px-4 sm:px-0">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-                <p class="mt-1 text-sm text-gray-600">
-                  Use a permanent address where you can receive mail.
-                </p>
-              </div>
-            </div> --}}
-            <div class="mt-5 md:mt-0 md:col-span-4">
-              <form action="#" method="POST">
-                <div class="overflow-hidden sm:rounded-md">
-                  <div class="px-4 py-5 bg-white sm:p-6">
-                    <div class="grid grid-cols-6 gap-6">
-                      <div class="col-span-6 sm:col-span-3">
-                        <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                        <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-        
-                      <div class="col-span-6 sm:col-span-3">
-                        <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                        <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-        
-                      <div class="col-span-6 sm:col-span-4">
-                        <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                        <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-        
-                      <div class="col-span-6 sm:col-span-3">
-                        <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
-                        <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                          <option>United States</option>
-                          <option>Canada</option>
-                          <option>Mexico</option>
-                        </select>
-                      </div>
-        
-                      <div class="col-span-6">
-                        <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                        <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-        
-                      <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                        <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                        <input type="text" name="city" id="city" autocomplete="address-level2" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-        
-                      <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
-                        <input type="text" name="region" id="region" autocomplete="off" inputmode="numeric" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-        
-                      <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-                        <input type="text" name="postal-code" id="postal-code" autocomplete="off" inputmode="latin" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button type="submit" class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                      Save
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <!--Footer-->
-        {{-- <div class="flex justify-end pt-2">
-          <button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action</button>
-          <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
-        </div> --}}
-        
-      </div>
-    </div>
-  </div>
-@endsection
-
-@section('scripts')
-  <script>
-    let createBtn = document.querySelector('.create-btn');
-    let closeBtn = document.querySelector('.modal-close');
-    let overlay = document.querySelector('.modal-overlay');
-    let modal = document.querySelector('.modal');
-    let body = document.querySelector('body');
-    let toggleModal = function(e) {
-      modal.classList.toggle('hidden');
-      modal.classList.toggle('flex');
-
-      body.classList.toggle('overflow-hidden')
-
-      e.preventDefault();
+    function fadeOut(el) {
+      el.style.opacity = 1;
+      var interpreloader = setInterval(function () {
+        el.style.opacity = el.style.opacity - 0.05;
+        if (el.style.opacity <= 0.05) {
+          clearInterval(interpreloader);
+          preloader.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      }, 16);
     }
-    createBtn.addEventListener('click', toggleModal);
-    closeBtn.addEventListener('click', toggleModal);
-    overlay.addEventListener('click', toggleModal);
-  </script>
-@endsection
+
+    window.onload = function () {
+      setTimeout(function () {
+        fadeOut(preloader);
+      }, 600);
+    };
+    </script>
+
+    <main id="main">
+        <div class="main__pattern"></div>
+        <div class="main__description">
+            <div class="main__simple_text">Привет, я — Загвоздин Денис</div>
+            <div class="main__direction_text">Full stack веб-разработчик</div>
+            <div class="main__simple_text">создающий современные и адаптивные веб-приложения</div>
+        </div>
+        <a class="main__cta" href="#header">
+            <img class="main__arrow_down" src="/images/arrow_down.png" alt="↓" width="20px">
+        </a>
+    </main>
+
+    <header id="header">
+        <div class="container">
+            <nav class="header__row">
+                <a class="header__logo" href="/#main">Denis Zagvozdin</a>
+                <ul class="header__links">
+                    <li class="header__link"><a href="#main">Главная</a></li>
+                    <li class="header__link"><a href="#services">Услуги</a></li>
+                    <li class="header__link"><a href="#portfolio">Портфолио</a></li>
+                    <li class="header__link"><a href="#skills">Навыки и умения</a></li>
+                    <li class="header__link"><a href="#about">Обо мне</a></li>
+                    <li class="header__link"><a href="#feedback">Связь со мной</a></li>
+                </ul>
+                <img id="header__button" class="header__menu" src="/images/menu.png" alt="" width="48px">
+            </nav>
+        </div>
+    </header>
+
+    <div id="menu">
+        <img id="menu__button" class="menu__image" src="/images/close.png" alt="" width="48px">
+        <ul class="menu__links">
+            <li class="menu__link"><a href="#main">Главная</a></li>
+            <li class="menu__link"><a href="#services">Услуги</a></li>
+            <li class="menu__link"><a href="#portfolio">Портфолио</a></li>
+            <li class="menu__link"><a href="#skills">Навыки и умения</a></li>
+            <li class="menu__link"><a href="#about">Обо мне</a></li>
+            <li class="menu__link"><a href="#pricing">Цены и сроки</a></li>
+            <li class="menu__link"><a href="#blog">Блог</a></li>
+            <li class="menu__link"><a href="#feedback">Связь со мной</a></li>
+        </ul>
+    </div>
+
+    <section id="services">
+        <div class="container">
+            <div class="titles">
+                <div class="titles__header">Мои услуги</div>
+                <div class="titles__line"></div>
+                <div class="titles__text">Услуги, которые я оказываю</div>
+            </div>
+            <div class="wrapper">
+                <div class="services__items">
+                    <div class="services__item">
+                        <img class="services__image" src="/images/services/1.png" alt="" width="100px">
+                        <div class="services__text">
+                            <div class="services__service_name">Front End</div>
+                            <div class="service__service_description">Сверстаю адаптивный, отзывчивый сайт с макета или
+                                с похожего на Вашу задумку сайта</div>
+                        </div>
+                    </div>
+                    <div class="services__item">
+                        <img class="services__image" src="/images/services/2.png" alt="" width="100px">
+                        <div class="services__text">
+                            <div class="services__service_name">Back End</div>
+                            <div class="service__service_description">Сделаю серверную часть сайта с регистрацией и
+                                авторизацией, надёжной системой оплаты, панелью администратора и др</div>
+                        </div>
+                    </div>
+                    <div class="services__item">
+                        <img class="services__image" src="/images/services/3.png" alt="" width="100px">
+                        <div class="services__text">
+                            <div class="services__service_name">Хостинг</div>
+                            <div class="service__service_description">Установлю сайт на хостинг, помогу с доменным
+                                именем, а также сделаю индексирование страниц для популярных браузеров</div>
+                        </div>
+                    </div>
+                    <div class="services__item">
+                        <img class="services__image" src="/images/services/4.png" alt="" width="100px">
+                        <div class="services__text">
+                            <div class="services__service_name">Консультация</div>
+                            <div class="service__service_description">Отвечу на Ваши вопросы, подскажу, исправлю баги на
+                                существующем сайте</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <div class="titles">
+                <div class="titles__header">Мои работы</div>
+                <div class="titles__line"></div>
+                <div class="titles__text">Портфолио и мои лучшие проекты</div>
+            </div>
+            <div class="wrapper">
+                <div class="portfolio__items">
+
+                    <div class="porfolio__item">
+                        <div class="portfolio__background" data-src="/images/portfolio/6/preview.jpg"
+                            style="background-image: url(/images/1x1.png);">
+                            <div class="portfolio__button">Посмотреть проект</div>
+                        </div>
+                        <div class="popup">
+                            <div class="popup__content scrollbox">
+                                <div class="popup__title">Проект онлайн школа «TeoSchool»</div>
+                                <div class="popup__description">Мой стартап, который ни к чему не привёл, но тем не
+                                    менее был создан крутой сайт, была сделана классная админка и было получено море
+                                    опыта :) Посмотреть, кстати, можно по этой ссылке — https://teoschool.ru/</div>
+                                <img class="popup__image" data-src="/images/portfolio/6/1.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/6/2.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/6/3.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/6/4.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/6/5.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/6/6.png" src="/images/1x1.png">
+                                <img class="popup__image" data-src="/images/portfolio/6/7.png" src="/images/1x1.png">
+                                <img class="popup__image" data-src="/images/portfolio/6/8.png" src="/images/1x1.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="porfolio__item">
+                        <div class="portfolio__background" data-src="/images/portfolio/5/preview.jpg"
+                            style="background-image: url(/images/1x1.png);">
+                            <div class="portfolio__button">Посмотреть проект</div>
+                        </div>
+                        <div class="popup">
+                            <div class="popup__content scrollbox">
+                                <div class="popup__title">Проект «Свой первый личный сайт»</div>
+                                <div class="popup__description">Идея создать собственный сайт зародилась у меня ещё в
+                                    2019 году. Тогда и началась медленная работа над сайтом: сбор идей дизайна, создание
+                                    собственного дизайна, вёрстка, бек-энд. Старый сайт был сделан мной уже умелым, но
+                                    не достаточно, поэтому сайт претерпел «перевёрстку», так сказать... Здесь я уже
+                                    умелый в достаточной мере переверстал сайт с использованием всех самых новых
+                                    технологий и более качественно. На скриншотах видно, что была поддержка
+                                    мультиязычности, но я от неё отказался, так как решил, что буду работать всё-таки с
+                                    русскими клиентами. Процесс создания, кстати, выложил на блог</div>
+                                <img class="popup__image" data-src="/images/portfolio/5/1.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/2.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/3.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/4.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/5.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/6.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/7.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/8.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/9.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/10.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/11.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/5/12.png" src="/images/1x1.png"
+                                    width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="porfolio__item">
+                        <div class="portfolio__background" data-src="/images/portfolio/2/preview.jpg"
+                            style="background-image: url(/images/1x1.png);">
+                            <div class="portfolio__button">Посмотреть проект</div>
+                        </div>
+                        <div class="popup">
+                            <div class="popup__content scrollbox">
+                                <div class="popup__title">Проект «Ламинированные полы»</div>
+                                <div class="popup__description">Сайт для компании, которая занимается созданием и
+                                    продажей полов для дома</div>
+                                <img class="popup__image" data-src="/images/portfolio/2/1.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/2/2.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/2/3.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/2/4 [phone].jpg"
+                                    src="/images/1x1.png">
+                                <img class="popup__image" data-src="/images/portfolio/2/5 [ipad].jpg"
+                                    src="/images/1x1.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="porfolio__item">
+                        <div class="portfolio__background" data-src="/images/portfolio/3/preview.jpg"
+                            style="background-image: url(/images/1x1.png);">
+                            <div class="portfolio__button">Посмотреть проект</div>
+                        </div>
+                        <div class="popup">
+                            <div class="popup__content scrollbox">
+                                <div class="popup__title">Проект «Админка туроператора»</div>
+                                <div class="popup__description">Компании-туроператору понадобилась админка для
+                                    фиксирования заказов и разных юридических распечаток</div>
+                                <img class="popup__image" data-src="/images/portfolio/3/1.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/3/2.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/3/3.png" src="/images/1x1.png"
+                                    width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="porfolio__item">
+                        <div class="portfolio__background" data-src="/images/portfolio/4/preview.jpg"
+                            style="background-image: url(/images/1x1.png);">
+                            <div class="portfolio__button">Посмотреть проект</div>
+                        </div>
+                        <div class="popup">
+                            <div class="popup__content scrollbox">
+                                <div class="popup__title">Проект «Сайт библиотеки подсветки синтаксиса»</div>
+                                <div class="popup__description">Собственный движок для подстветки синтаксиса</div>
+                                <img class="popup__image" data-src="/images/portfolio/4/1.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/4/2.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/4/3.png" src="/images/1x1.png"
+                                    width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="porfolio__item">
+                        <div class="portfolio__background" data-src="/images/portfolio/1/preview.jpg"
+                            style="background-image: url(/images/1x1.png);">
+                            <div class="portfolio__button">Посмотреть проект</div>
+                        </div>
+                        <div class="popup">
+                            <div class="popup__content scrollbox">
+                                <div class="popup__title">Проект «Мастера без посредников»</div>
+                                <div class="popup__description">Данный проект разрабатывался совместно с мастером,
+                                    который от работы на платных сервисах решил перейти на собственно ручно созданный
+                                    сайт, где он сможет помочь не только себе, но и другим таким же работникам, которые
+                                    хотят выполнять работу без посредников.</div>
+                                <img class="popup__image" data-src="/images/portfolio/1/1.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/1/2.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/1/3.png" src="/images/1x1.png"
+                                    width="100%">
+                                <img class="popup__image" data-src="/images/portfolio/1/5 [phone].jpg"
+                                    src="/images/1x1.png">
+                                <img class="popup__image" data-src="/images/portfolio/1/6 [ipad].jpg"
+                                    src="/images/1x1.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="titles">
+                <div class="titles__header">Мои навыки и умения</div>
+                <div class="titles__line"></div>
+                <div class="titles__text">Основные навыки и технологии, которыми я владею</div>
+            </div>
+            <div class="wrapper">
+                <div class="skills__items">
+                    <div class="skills__item">
+                        <div class="skills__pie_chart">
+                            <div class="skills__pie_chart_content">95%</div>
+                        </div>
+                        <div class="skills__description">HTML5 & CSS3</div>
+                    </div>
+                    <div class="skills__item">
+                        <div class="skills__pie_chart">
+                            <div class="skills__pie_chart_content">89%</div>
+                        </div>
+                        <div class="skills__description">JavaScript & VueJS</div>
+                    </div>
+                    <div class="skills__item">
+                        <div class="skills__pie_chart">
+                            <div class="skills__pie_chart_content">90%</div>
+                        </div>
+                        <div class="skills__description">PHP & Laravel</div>
+                    </div>
+                    <div class="skills__item">
+                        <div class="skills__pie_chart">
+                            <div class="skills__pie_chart_content">84%</div>
+                        </div>
+                        <div class="skills__description">Сервер & Хостинг</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="calltoaction" data-src="/images/call_to_action_image.webp" style="background-image: url(/images/1x1.png);">
+        <div class="calltoaction__title">Готовы начать?</div>
+        <div class="calltoaction__text">Я готов для срочных, амбициозных, экстраординарных проектов!</div>
+        <a class="calltoaction__button" href="#feedback">Связаться со мной</a>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <div class="titles">
+                <div class="titles__header">Обо мне</div>
+                <div class="titles__line"></div>
+                <div class="titles__text about__text">Мне было 15 лет, когда я решил: программирование — моя сфера
+                    деятельности. Тогда я ещё не знал, что стану именно веб-разработчиком, но вот я здесь!.. За моей
+                    спиной 5 лет опыта программирования, три из которых я нахожусь во фрилансе. Я не просто создаю
+                    сайты. Я предлагаю свои реализации тех или иных идей, помогаю с выбором хостинга, настройской
+                    статистики с другого. Этот сайт — демонстрация того, что я умею делать; и мой <a href="/articles"
+                        style="color: inherit">блог</a>, где я делюсь своими мыслями и опытом</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <div class="titles">
+                <div class="titles__header">Цены и сроки</div>
+                <div class="titles__line"></div>
+                <div class="titles__text">Здесь представлены виды сайтов, которые я делаю, цены и сроки</div>
+            </div>
+            <div class="wrapper">
+                <div class="pricing__items">
+                    <div class="pricing__item">
+                        <div class="pricing__title">Лендинг</div>
+                        <div class="pricing__description">Лендинг (целевая страница) — одностраничный сайт, созданный в
+                            маркетинговых или рекламных целей, чтобы повысить популярность товара/услуги. Лендинги
+                            играют ключевую роль в увеличении узнаваемости бренда, повышении продаж, улучшении
+                            SEO-показателей и привлечении новых клиентов. Посадочная страница — отличная возможность
+                            расширить клиентскую базу</div>
+                        <ul class="pricing__list">
+                            <li>15-50 тысяч рублей</li>
+                            <li>7-14 рабочих дней</li>
+                        </ul>
+                    </div>
+                    <div class="pricing__item">
+                        <div class="pricing__title">Сайт для компании/предпринимателя</div>
+                        <div class="pricing__description">Сайт компании/предпринимателя призван предоставить клиентам
+                            или бизнес-партнёрам подробную информацию о компании/предпринимателе, услугах, товарах,
+                            команде и другом.<br><br>Благодаря сайту скромный клиент, не прибегая к звонку, например,
+                            сможет посмотреть актуальную информацию для себя и, возможно, сможет заказать что-либо
+                            онлайн</div>
+                        <ul class="pricing__list">
+                            <li>20-100 тысяч рублей</li>
+                            <li>7-12 рабочих дней</li>
+                        </ul>
+                    </div>
+                    <div class="pricing__item">
+                        <div class="pricing__title">Интернет-магазин</div>
+                        <div class="pricing__description">Интернет-магазин доступен клиенту 24 часа в сутки, 7 дней в
+                            неделю; бизнес не привязан к конкретному региону — можно осуществлять торговлю из любой
+                            точки мира; «витрины» сайта безграничны, поэтому не возникнет проблем, с недостатком места;
+                            торговля онлайн, не нужно куда-либо идти — это далеко не полный список всех преимуществ
+                            интернет-магазина. В моём распоряжении навыки мощного инструмента Laravel, что позволяет
+                            делать качественные интернет-магазины</div>
+                        <ul class="pricing__list">
+                            <li>20-100 тысяч рублей</li>
+                            <li>2-3 недели</li>
+                        </ul>
+                    </div>
+                    <div class="pricing__item">
+                        <div class="pricing__title">Блог</div>
+                        <div class="pricing__description">Блог — интернет-дневник.<br><br>Ныне очень популярный вид
+                            сайтов — блог. Готов быстро и качественно вам его сделать</div>
+                        <ul class="pricing__list">
+                            <li>15-40 тысяч рублей</li>
+                            <li>1 неделя</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <div class="titles">
+                <div class="titles__header">Блог</div>
+                <div class="titles__line"></div>
+                <div class="titles__text">Моя жизнь, мысли, идеи, уроки</div>
+            </div>
+            <div class="wrapper">
+                <p style="text-align: center; font-style: italic">Пока ничего :(</p>
+                {{-- <div class="blog__articles">
+          <div class="blog__article" data-src="/images/main_background_image.jpg" style="background-image: url(/images/1x1.png);">
+            <div class="blog__title">Работа из дома: миф или реальность?</div>
+            <a class="blog__link" href="#"></a>
+          </div>
+          <div class="blog__article" data-src="/images/main_background_image.jpg" style="background-image: url(/images/1x1.png);">
+            <div class="blog__title">Работа из дома: миф или реальность?</div>
+            <a class="blog__link" href="#"></a>
+          </div>
+          <div class="blog__article" data-src="/images/main_background_image.jpg" style="background-image: url(/images/1x1.png);">
+            <div class="blog__title">Работа из дома: миф или реальность?</div>
+            <a class="blog__link" href="#"></a>
+          </div>
+        </div> --}}
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback">
+        <div class="container">
+            <div class="titles">
+                <div class="titles__header">Свяжитесь со мной</div>
+                <div class="titles__line"></div>
+                <div class="titles__text">В самом низу сайта представлены контакты, по которым со мной можно связаться
+                    через соцсети, но если вы хотите — можете написать в эту форму: она рабочая</div>
+            </div>
+            <div class="wrapper">
+                <form class="feedback__form" action="{{ route('index.store') }}#feedback" method="POST">
+                    @csrf
+
+                    @if (\Session::has('success'))
+                    <span class="feedback__success">{{ \Session::get('success') }}</span>
+                    @endif
+
+                    @if ($errors->has('name'))
+                    <input class="feedback__input feedback__input-error" type="text" name="name"
+                        placeholder="Введите своё имя" value="{{ old('name') }}">
+                    <label class="feedback__error">{{ $errors->first('name') }}</label>
+                    @else
+                    <input class="feedback__input" type="text" name="name" placeholder="Введите своё имя"
+                        value="{{ old('name') }}">
+                    @endif
+
+                    @if ($errors->has('email'))
+                    <input class="feedback__input feedback__input-error" type="email" name="email"
+                        placeholder="Введите свою почту" value="{{ old('email') }}">
+                    <label class="feedback__error">{{ $errors->first('email') }}</label>
+                    @else
+                    <input class="feedback__input" type="email" name="email" placeholder="Введите свою почту"
+                        value="{{ old('email') }}">
+                    @endif
+
+                    @if ($errors->has('subject'))
+                    <select class="feedback__select feedback__input-error" name="subject">
+                        <option value="0">Выберите тему сообщения</option>
+                        <option value="1">Задать вопрос</option>
+                        <option value="2">Оставить заявку на создание сайта</option>
+                        <option value="3">Отправить отзыв</option>
+                        <option value="4">Другое</option>
+                    </select>
+                    <label class="feedback__error">{{ $errors->first('subject') }}</label>
+                    @else
+                    <select class="feedback__select" name="subject">
+                        <option value="0">Выберите тему сообщения</option>
+                        <option value="1">Задать вопрос</option>
+                        <option value="2">Оставить заявку на создание сайта</option>
+                        <option value="3">Отправить отзыв</option>
+                        <option value="4">Другое</option>
+                    </select>
+                    @endif
+
+                    @if ($errors->has('message'))
+                    <textarea class="feedback__textarea feedback__input-error" name="message" rows="8"
+                        placeholder="Введите сообщение">{{ old('message') }}</textarea>
+                    <label class="feedback__error">{{ $errors->first('message') }}</label>
+                    @else
+                    <textarea class="feedback__textarea" name="message" rows="8"
+                        placeholder="Введите сообщение">{{ old('message') }}</textarea>
+                    @endif
+
+                    <button class="feedback__button" type="submit">Отправить сообщение</button>
+                    <div class="feedback__text">
+                        <small class="feedback__privacy">Нажимая кнопку «Отправить сообщение» вы даёте согласие на
+                            обработку Ваших персональных данные и соглашаетесь с <a href="/privacy.pdf"
+                                target="_blank">политикой конфиденциальности</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal">
+        <div class="modal__content">
+            <div class="modal__title">Контакты</div>
+            <div class="modal__text">
+                <ul class="modal__list">
+                    <li>Facebook: <strong><a href="https://www.facebook.com/denchik1170"
+                                target="_blank">denchik1170</a></strong></li>
+                    <li>Telegram: <strong><a href="https://t.me/denchik1170" target="_blank">denchik1170</a></strong>
+                    </li>
+                    <li>Youtube (старый канал): <strong><a
+                                href="https://www.youtube.com/channel/UCM9BQfzhHABf3CHuinyZj_Q"
+                                target="_blank">ссылка</a></strong></li>
+                    <li>Youtube (новый канал): <strong><a
+                                href="https://www.youtube.com/channel/UCbxqhdu5HwhZC2rE-a1MwrQ"
+                                target="_blank">ссылка</a></strong></li>
+                    <li>Рабочая почта: <strong>gaz91.91@mail.ru</strong></li>
+                    <li>WhatsApp: <strong>8-908-067-52-95</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="footer__socials">
+            <div class="footer__social">
+                <span class="icon-facebook"></span>
+            </div>
+            <div class="footer__social">
+                <span class="icon-telegram"></span>
+            </div>
+            <div class="footer__social">
+                <span class="icon-youtube"></span>
+            </div>
+            <div class="footer__social">
+                <span class="icon-mail"></span>
+            </div>
+            <div class="footer__social">
+                <span class="icon-whatsapp"></span>
+            </div>
+        </div>
+        <div class="footer__copyrights">© 2021 Denis Zagvozdin | Project Idea —&nbsp;<a
+                href="https://scripteden.com/previews/Clean/" target="_blank">scripteden</a></div>
+    </footer>
+
+    <script src="/js/index.js"></script>
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(80907394, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/80907394" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+</body>
+
+</html>

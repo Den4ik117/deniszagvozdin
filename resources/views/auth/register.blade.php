@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('header')
   <div class="flex items-center justify-between py-2">
@@ -12,7 +12,7 @@
   </div>
 @endsection
 
-@section('content') 
+@section('content')
   <div class="mt-6">
     <div class="md:grid md:grid-cols-4 md:gap-6">
       <div class="mt-5 md:mt-0 md:col-span-4">
@@ -27,22 +27,22 @@
                   <label class="block text-sm font-medium text-gray-700" for="first_name">Имя:</label>
                   <input id="first_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="text" name="first_name" autocomplete="off" value="{{ old('first_name') }}" autofocus required>
                 </div>
-  
+
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700" for="last_name">Фамилия:</label>
                   <input id="last_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="text" name="last_name" autocomplete="off" value="{{ old('last_name') }}" required>
                 </div>
-  
+
                 <div class="col-span-6">
                   <label class="block text-sm font-medium text-gray-700" for="email">Почта:</label>
                   <input id="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="email" name="email" autocomplete="email" value="{{ old('email') }}" required>
                 </div>
-  
+
                 <div class="col-span-6 sm:col-span-3">
                   <label class="block text-sm font-medium text-gray-700" for="password">Пароль:</label>
                   <input id="password" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="password" name="password" autocomplete="new-password" required>
                 </div>
-                
+
                 <div class="col-span-6 sm:col-span-3">
                   <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Повторите пароль:</label>
                   <input id="password_confirmation" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="password" name="password_confirmation" autocomplete="new-password" required>
