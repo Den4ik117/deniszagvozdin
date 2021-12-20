@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Панель администратора')
+@section('title', 'Создать статью')
 
 @section('header')
     <div class="flex items-center justify-between py-2">

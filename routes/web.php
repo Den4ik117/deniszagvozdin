@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\FileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::group(['prefix' => 'admin', 'name' => 'admin.', 'middleware' => 'auth', '
    })->name('index');
 
    Route::resource('articles', ArticleController::class);
+   Route::resource('files', FileController::class)->except('show', 'edit', 'update');
 });
 
 require __DIR__.'/auth.php';

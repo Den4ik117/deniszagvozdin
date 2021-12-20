@@ -39,8 +39,8 @@
           @auth
             <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100 @if(Route::is('admin.index')) underline @endif" href="{{ route('admin.index') }}">Главная</a></li>
             <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100 @if(Route::is('admin.articles.*')) underline @endif" href="{{ route('admin.articles.index') }}">Статьи</a></li>
+            <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100 @if(Route::is('admin.files.*')) underline @endif" href="{{ route('admin.files.index') }}">Файлы</a></li>
             <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100" href="{{ route('logout') }}">Выйти</a></li>
-
           @endauth
 
           @guest
