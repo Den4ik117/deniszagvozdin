@@ -28,4 +28,9 @@ class Article extends Model
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
 }

@@ -21,12 +21,12 @@
   <div class="main__title">{{ $article->title }}</div>
   <div class="main__paths">
     <span class="main__path"><a href="{{ route('index') }}">Главная</a></span>
-    <span class="main__path"><a href="{{ route('articles') }}">Блог</a></span>
+    <span class="main__path"><a href="{{ route('articles.index') }}">Блог</a></span>
     <span class="main__path"><h1>{{ $article->title }}</h1></span>
   </div>
   <div class="main__info">
     <span>{{ $article->created_at->format('d.m.Y') }}</span>
-    <span>{{ auth()->user()->name . ' ' . auth()->user()->surname }}</span>
+    <span>{{ auth()->user()->full_name }}</span>
   </div>
 @endsection
 
