@@ -1,36 +1,39 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-        </div>
+@section('header')
+  <div class="flex items-center justify-between py-2">
+    <div class="font-bold">
+      <span>Подтверждение личности</span>
+    </div>
+  </div>
+@endsection
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('content') 
+  <div class="mt-6">
+    <div class="md:grid md:grid-cols-4 md:gap-6">
+      <div class="mt-5 md:mt-0 md:col-span-4">
+        <form action="{{ route('password.confirm') }}" method="POST">
+          @csrf
 
-        <form method="POST" action="{{ route('password.confirm') }}">
-            @csrf
+          <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5 bg-white sm:p-6">
+              <div class="grid grid-cols-6 gap-6">
+  
+                <div class="col-span-6">
+                  <label class="block text-sm font-medium text-gray-700" for="password">Пароль от аккаунта:</label>
+                  <input id="password" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" type="password" name="password" autocomplete="current-password" required>
+                </div>
 
-            <!-- Password -->
-            <div>
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+              </div>
             </div>
-
-            <div class="flex justify-end mt-4">
-                <x-button>
-                    {{ __('Confirm') }}
-                </x-button>
+            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+              <button type="submit" class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Подтвердить пароль
+              </button>
             </div>
+          </div>
         </form>
-    </x-auth-card>
-</x-guest-layout>
+      </div>
+    </div>
+  </div>
+@endsection
