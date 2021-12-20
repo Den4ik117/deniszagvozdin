@@ -30,5 +30,5 @@
   </div>
 @endsection
 
-@section('content'){!! $article->content !!}@endsection
+@section('content'){!! $content !!}@endsection
 

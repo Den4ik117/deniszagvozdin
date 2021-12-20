@@ -30,8 +30,10 @@ Route::get('articles', function () {
 
 Route::get('articles/{slug}', function ($slug) {
     $article = Article::where('slug', $slug)->firstOrFail();
+    $parsedown = new Parsedown();
+    $content = $parsedown->text($article->content);
 
-    return view('articles.show', compact('article'));
+    return view('articles.show', compact('article', 'content'));
 })->name('articles.show');
 
 Route::group(['prefix' => 'admin', 'name' => 'admin.', 'middleware' => 'auth', 'as' => 'admin.'], function () {
