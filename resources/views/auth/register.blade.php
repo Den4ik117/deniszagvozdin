@@ -3,7 +3,7 @@
 @section('header')
   <div class="flex items-center justify-between py-2">
     <div class="font-bold">
-      <span>Регистрация</span>
+      <span>@section('title', 'Регистрация в панеле администратора')</span>
     </div>
     <a class="create-btn bg-green-500 text-white font-semibold py-1 px-2 hover:bg-green-600 rounded text-sm" href="{{ route('login') }}">
       <span class="block sm:hidden">&nbsp;☇&nbsp;</span>

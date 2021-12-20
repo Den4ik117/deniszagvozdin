@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,10 +22,12 @@ Route::post('/', function () {
     return view('index');
 })->name('index.store');
 
-Route::group(['prefix' => 'admin', 'name' => 'admin.', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'name' => 'admin.', 'middleware' => 'auth', 'as' => 'admin.'], function () {
    Route::get('/', function () {
        return view('admin.index');
-   });
+   })->name('index');
+
+   Route::resource('articles', ArticleController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Design Project</title>
+  <title>@yield('title') | Denis Zagvozdin</title>
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="bg-gray-100 overflow-x-hidden">
@@ -15,7 +15,7 @@
           <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-indigo-300 to-purple-400">
             <span class="text-white font-bold select-none">
               @auth
-                DV
+                {{ auth()->user()->initials }}
               @endauth
 
               @guest
@@ -25,7 +25,7 @@
           </div>
           <span class="hidden sm:block font-semibold">
             @auth
-              Dmitry Vinogradov  
+              {{ auth()->user()->full_name }}
             @endauth
           </span>
         </div>
@@ -37,9 +37,10 @@
       <nav class="menu py-2">
         <ul class="flex flex-col gap-1">
           @auth
-            <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100" href="#">Main</a></li>
-            <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100" href="#">About</a></li>
-            <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100" href="#">Some more</a></li>
+            <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100 @if(Route::is('admin.index')) underline @endif" href="{{ route('admin.index') }}">Главная</a></li>
+            <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100 @if(Route::is('admin.articles.*')) underline @endif" href="{{ route('admin.articles.index') }}">Статьи</a></li>
+            <li><a class="block px-3 py-2 rounded-md font-medium hover:bg-gray-100" href="{{ route('logout') }}">Выйти</a></li>
+
           @endauth
 
           @guest
@@ -67,7 +68,7 @@
               <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z"/>
             </svg>
           </div>
-          
+
           <div class="px-4 py-2 -mx-3">
             <div class="mx-3">
               <span class="font-semibold text-green-500">Успех</span>
@@ -84,7 +85,7 @@
               <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z"/>
             </svg>
           </div>
-          
+
           <div class="px-4 py-2 -mx-3">
             <div class="mx-3">
               <span class="font-semibold text-red-500">Ошибка</span>

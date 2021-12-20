@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Подтверждение почты')
+
 @section('header')
   <div class="flex items-center justify-between py-2">
     <div class="font-bold">
