@@ -96,6 +96,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'to' => 'gaz91.91@mail.ru',
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

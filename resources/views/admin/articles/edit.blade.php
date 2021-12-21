@@ -115,8 +115,8 @@
                                 </div>
 
                                 <div class="col-span-6">
-                                    <label for="content" class="block text-sm font-medium text-gray-700">Содержание:</label>
-                                    <textarea id="content" name="content" rows="40" required class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $article->content }}</textarea>
+                                    <label for="content_md" class="block text-sm font-medium text-gray-700">Содержание:</label>
+                                    <textarea id="content_md" name="content_md" rows="40" required class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $article->content_md }}</textarea>
                                 </div>
 
                                 <div class="col-span-6">

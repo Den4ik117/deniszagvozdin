@@ -22,7 +22,8 @@ class CreateArticlesTable extends Migration
             $table->string('og_description');
             $table->foreignId('user_id');
             $table->string('preview');
-            $table->text('content');
+            $table->text('content_md');
+            $table->text('content_html');
             $table->string('visible');
             $table->timestamps();
         });

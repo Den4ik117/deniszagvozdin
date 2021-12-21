@@ -17,7 +17,8 @@ class Article extends Model
         'og_title',
         'og_description',
         'user_id',
-        'content',
+        'content_md',
+        'content_html',
         'preview',
         'visible',
     ];
@@ -32,5 +33,10 @@ class Article extends Model
     public function files()
     {
         return $this->hasMany(File::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -51,15 +51,15 @@
       <div class="articles__items">
         @foreach($articles as $article)
           <div class="articles__item">
-            <div class="articles__image" style="background-image: url({{ $article->image_url }});"><a href="{{ route('article', $article->slug) }}"></a></div>
+            <div class="articles__image" style="background-image: url({{ $article->files[0]->path }});"><a href="{{ route('articles.show', $article->slug) }}"></a></div>
             <div class="articles__description">
               <div class="articles__text">
-                <a class="articles__title" href="{{ route('article', $article->slug) }}">{{ $article->title }}</a>
-                <div class="articles__part">{{ $article->short_content }}</div>
+                <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
+                <div class="articles__part">{{ $article->preview }}</div>
               </div>
               <div class="articles__info">
                 <span>{{ $article->created_at->format('d.m.Y') }}</span>
-                <span>{{ $article->user->fullName }}</span>
+                <span>{{ $article->user->full_name }}</span>
               </div>
             </div>
           </div>

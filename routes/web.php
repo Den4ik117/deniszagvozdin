@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\IndexController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
@@ -16,32 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
-
-Route::post('/', function () {
-    return view('index');
-})->name('index.store');
-
-Route::get('articles', function () {
-
-})->name('articles.index');
-
-Route::get('articles/{slug}', function ($slug) {
-    $article = Article::where('slug', $slug)->firstOrFail();
-    $parsedown = new Parsedown();
-    $content = $parsedown->text($article->content);
-
-    return view('articles.show', compact('article', 'content'));
-})->name('articles.show');
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::post('/', [IndexController::class, 'store'])->name('index.store');
+Route::get('/articles', [IndexController::class, 'articles'])->name('articles.index');
+Route::get('articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 
 Route::group(['prefix' => 'admin', 'name' => 'admin.', 'middleware' => 'auth', 'as' => 'admin.'], function () {
-   Route::get('/', function () {
-       return view('admin.index');
-   })->name('index');
-
-   Route::resource('articles', ArticleController::class);
+   Route::get('/', AdminController::class)->name('index');
+   Route::resource('articles', ArticleController::class)->except('show');
    Route::resource('files', FileController::class)->except('show', 'edit', 'update');
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Parsedown;
 
 class ArticleController extends Controller
 {
@@ -33,26 +34,28 @@ class ArticleController extends Controller
             'og_title' => 'required|string|max:255',
             'og_description' => 'required|string|max:255',
             'preview' => 'required|string|max:255',
-            'content' => 'required|string'
+            'content_md' => 'required|string'
         ]);
+
+        $parseDown = new Parsedown();
 
         Article::create($validated + [
                 'user_id' => auth()->user()->id,
-                'visible' => $request->boolean('visible')
+                'visible' => $request->boolean('visible'),
+                'content_html' => $parseDown->text($request->content_md)
             ]);
 
         return redirect()->route('admin.articles.index')->with('success', 'Статья успешно создана!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Article $article)
+    public function show($slug)
     {
-        //
+        $article = Article::where('slug', $slug)->firstOrFail();
+
+        if (!$article->visible && !auth()->check())
+            abort(404);
+
+        return view('admin.articles.show', compact('article'));
     }
 
 
@@ -71,11 +74,14 @@ class ArticleController extends Controller
             'og_title' => 'required|string|max:255',
             'og_description' => 'required|string|max:255',
             'preview' => 'required|string|max:255',
-            'content' => 'required|string'
+            'content_md' => 'required|string'
         ]);
 
+        $parseDown = new Parsedown();
+
         $article->update($validated + [
-                'visible' => $request->boolean('visible')
+                'visible' => $request->boolean('visible'),
+                'content_html' => $parseDown->text($request->content_md)
             ]);
 
         return back()->with('success', 'Статья успешно обновлена!');

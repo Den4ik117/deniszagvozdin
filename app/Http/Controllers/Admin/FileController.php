@@ -31,7 +31,7 @@ class FileController extends Controller
             'file' => 'required|file'
         ]);
 
-        $path = '/' . Storage::putFile('articles/' . $request->article_id, $request->file('file'));
+        $path = '/' . Storage::putFile('files/' . $request->article_id, $request->file('file'));
 
         File::create([
             'article_id' => $request->article_id,

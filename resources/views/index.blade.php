@@ -481,8 +481,9 @@
             <div class="titles">
                 <div class="titles__header">Свяжитесь со мной</div>
                 <div class="titles__line"></div>
-                <div class="titles__text">В самом низу сайта представлены контакты, по которым со мной можно связаться
-                    через соцсети, но если вы хотите — можете написать в эту форму: она рабочая</div>
+                <div class="titles__text">
+                    Чтобы связаться со мной, вы можете заполнить форму или написать в соцсетях, указанных ниже
+                </div>
             </div>
             <div class="wrapper">
                 <form class="feedback__form" action="{{ route('index.store') }}#feedback" method="POST">
@@ -512,20 +513,20 @@
 
                     @if ($errors->has('subject'))
                     <select class="feedback__select feedback__input-error" name="subject">
-                        <option value="0">Выберите тему сообщения</option>
-                        <option value="1">Задать вопрос</option>
-                        <option value="2">Оставить заявку на создание сайта</option>
-                        <option value="3">Отправить отзыв</option>
-                        <option value="4">Другое</option>
+                        <option value="">Выберите тему сообщения</option>
+                        <option>Задать вопрос</option>
+                        <option>Оставить заявку на создание сайта</option>
+                        <option>Отправить отзыв</option>
+                        <option>Другое</option>
                     </select>
                     <label class="feedback__error">{{ $errors->first('subject') }}</label>
                     @else
                     <select class="feedback__select" name="subject">
-                        <option value="0">Выберите тему сообщения</option>
-                        <option value="1">Задать вопрос</option>
-                        <option value="2">Оставить заявку на создание сайта</option>
-                        <option value="3">Отправить отзыв</option>
-                        <option value="4">Другое</option>
+                        <option value="">Выберите тему сообщения</option>
+                        <option @if(old('subject') == 'Задать вопрос') selected @endif>Задать вопрос</option>
+                        <option @if(old('subject') == 'Оставить заявку на создание сайта') selected @endif>Оставить заявку на создание сайта</option>
+                        <option @if(old('subject') == 'Отправить отзыв') selected @endif>Отправить отзыв</option>
+                        <option @if(old('subject') == 'Другое') selected @endif>Другое</option>
                     </select>
                     @endif
 
