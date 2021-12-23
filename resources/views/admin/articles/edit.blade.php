@@ -111,12 +111,12 @@
 
                                 <div class="col-span-6">
                                     <label for="preview" class="block text-sm font-medium text-gray-700">Текст из начала статьи:</label>
-                                    <textarea id="preview" name="preview" rows="6" required class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $article->preview }}</textarea>
+                                    <textarea id="preview" name="preview" rows="6" required class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ old('preview') ?? $article->preview }}</textarea>
                                 </div>
 
                                 <div class="col-span-6">
                                     <label for="content_md" class="block text-sm font-medium text-gray-700">Содержание:</label>
-                                    <textarea id="content_md" name="content_md" rows="40" required class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $article->content_md }}</textarea>
+                                    <textarea id="content_md" name="content_md" rows="40" required class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ old('content_md') ?? $article->content_md }}</textarea>
                                 </div>
 
                                 <div class="col-span-6">
