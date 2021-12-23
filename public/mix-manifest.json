@@ -1,14 +1,12 @@
 {
     "/js/index.js": "/js/index.js",
     "/js/articles.js": "/js/articles.js",
-    "/js/article.js": "/js/article.js",
     "/js/app.js": "/js/app.js",
+    "/css/index-sm.css": "/css/index-sm.css",
     "/css/index-md.css": "/css/index-md.css",
     "/css/index-lg.css": "/css/index-lg.css",
     "/css/index-xl.css": "/css/index-xl.css",
-    "/css/article.css": "/css/article.css",
     "/css/articles.css": "/css/articles.css",
     "/css/app.css": "/css/app.css",
-    "/css/index-xs.css": "/css/index-xs.css",
-    "/css/index-sm.css": "/css/index-sm.css"
+    "/css/index-xs.css": "/css/index-xs.css"
 }

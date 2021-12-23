@@ -1,114 +1,106 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="ru" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/css/articles.css">
-  <title>Denis Zagvozdin | Блог</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="description" content="Статьи, уроки, гайды, мысли Дениса Загвоздина">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Блог Дениса Загвоздина">
+    <meta property="og:description" content="Статьи, уроки, гайды, мысли Дениса Загвоздина">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="Создание сайтов by Denis Zagvozdin">
+    <meta property="og:image" content="/images/og-image.jpg">
+    <title>Блог Дениса Загвоздина</title>
+    <link rel="stylesheet" href="{{ asset('css/articles.css') }}">
+    <link rel="shortcut icon" href={{ asset('favicon.ico') }} type="image/x-icon">
 </head>
-<body class="scrollbox">
-  <div id="line"></div>
-
-  <header id="header">
+<body>
+<header class="header">
     <div class="container">
-      <nav class="header__row">
-        <a class="header__logo" href="/">Denis Zagvozdin</a>
-        <ul class="header__list">
-          <li class="header__item"><a href="/">Главная</a></li>
-          <li class="header__item"><a href="/#services">Мои услуги</a></li>
-          <li class="header__item"><a href="/#about">Обо мне</a></li>
-          <li class="header__item"><a href="/#pricing">Цены и сроки</a></li>
-          <li class="header__item"><a href="/#feedback">Связаться со мной</a></li>
-        </ul>
-        <img id="header__button" class="header__menu" src="/images/menu.png" alt="" width="48px">
-      </nav>
-    </div>
-  </header>
-
-  <div id="menu">
-    <img id="menu__button" class="menu__image" src="/images/close.png" alt="" width="48px">
-    <ul class="menu__links">
-      <li class="menu__link"><a href="/">Главная</a></li>
-      <li class="menu__link"><a href="/#services">Мои услуги</a></li>
-      <li class="menu__link"><a href="/#about">Обо мне</a></li>
-      <li class="menu__link"><a href="/#pricing">Цены и сроки</a></li>
-      <li class="menu__link"><a href="/#feedback">Связаться со мной</a></li>
-    </ul>
-  </div>
-
-  <div id="main">
-    <div class="main__title">Блог</div>
-    <div class="main__paths">
-      <span class="main__path"><a href="/">Главная</a></span>
-      <span class="main__path">Блог</span>
-    </div>
-  </div>
-
-  <section id="articles">
-    <div class="container">
-      <div class="articles__items">
-        @foreach($articles as $article)
-          <div class="articles__item">
-            <div class="articles__image" style="background-image: url({{ $article->files[0]->path }});"><a href="{{ route('articles.show', $article->slug) }}"></a></div>
-            <div class="articles__description">
-              <div class="articles__text">
-                <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
-                <div class="articles__part">{{ $article->preview }}</div>
-              </div>
-              <div class="articles__info">
-                <span>{{ $article->created_at->format('d.m.Y') }}</span>
-                <span>{{ $article->user->full_name }}</span>
-              </div>
+        <nav class="header__row">
+            <a class="header__logo" href="{{ route('index') }}">Denis Zagvozdin</a>
+            <div class="header__menu">
+                <img class="header__close" src="{{ asset('images/close.png') }}" alt="Close">
+                <ul class="header__list">
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/#services">Мои услуги</a></li>
+                    <li><a href="/#about">Обо мне</a></li>
+                    <li><a href="/#pricing">Цены и сроки</a></li>
+                    <li><a href="/#feedback">Связаться со мной</a></li>
+                </ul>
+                <img class="header__open" src="{{ asset('images/menu.png') }}" alt="Menu">
             </div>
-          </div>
-        @endforeach
-      </div>
+        </nav>
     </div>
-  </section>
+</header>
 
-  <div id="modal">
-    <div class="modal__content">
-      <div class="modal__title">Контакты</div>
-      <div class="modal__text">
-        <ul class="modal__list">
-          <li>Facebook: <strong><a href="https://www.facebook.com/denchik1170" target="_blank">denchik1170</a></strong></li>
-          <li>Telegram: <strong><a href="https://t.me/denchik1170" target="_blank">denchik1170</a></strong></li>
-          <li>Youtube (старый канал): <strong><a href="https://www.youtube.com/channel/UCM9BQfzhHABf3CHuinyZj_Q" target="_blank">ссылка</a></strong></li>
-          <li>Youtube (новый канал): <strong><a href="https://www.youtube.com/channel/UCbxqhdu5HwhZC2rE-a1MwrQ" target="_blank">ссылка</a></strong></li>
-          <li>Рабочая почта: <strong>gaz91.91@mail.ru</strong></li>
-          <li>WhatsApp: <strong>8-908-067-52-95</strong></li>
-        </ul>
-      </div>
+<div class="content">
+    <div class="title">
+        <div class="container">
+            <div class="title__info">
+                <h1 class="title__header">Блог</h1>
+                <div class="title__breadcrumbs">
+                    <span class="title__crumb"><a href="{{ route('index') }}">Главная</a></span>
+                    <span class="title__crumb">Блог</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <footer id="footer">
-    <div class="footer__socials">
-      <div class="footer__social">
-        <span class="icon-facebook"></span>
-      </div>
-      <div class="footer__social">
-        <span class="icon-telegram"></span>
-      </div>
-      <div class="footer__social">
-        <span class="icon-youtube"></span>
-      </div>
-      <div class="footer__social">
-        <span class="icon-mail"></span>
-      </div>
-      <div class="footer__social">
-        <span class="icon-whatsapp"></span>
-      </div>
-    </div>
-    <div class="footer__copyrights">© 2021 Denis Zagvozdin | Project Idea —&nbsp;<a href="https://scripteden.com/previews/Clean/" target="_blank">scripteden</a></div>
-  </footer>
+    <main class="articles">
+        <div class="container">
+            <div class="articles__row">
+                @foreach($articles as $article)
+                    <article class="articles__article">
+                        <a href="{{ route('articles.show', $article->slug) }}">
+                            <img class="articles__image" src="{{ $article->files[0]->path }}">
+                        </a>
+                        <div class="articles__description">
+                            <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
+                            <span class="articles__preview">{{ $article->preview }}</span>
+                        </div>
+                        <div class="articles__info">
+                            <span>{{ $article->created_at->format('d.m.Y') }}</span>
+                            <span>{{ $article->user->full_name }}</span>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </main>
 
-  <script src="/js/articles.js"></script>
-  <script type="text/javascript" >
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__socials">
+                <a class="footer__social" href="https://vk.com/denchik1170" target="_blank">
+                    <span class="icon-vk"></span>
+                </a>
+                <a class="footer__social" href="https://t.me/denchik1170" target="_blank">
+                    <span class="icon-telegram"></span>
+                </a>
+                <a class="footer__social" href="https://www.youtube.com/channel/UCbxqhdu5HwhZC2rE-a1MwrQ" target="_blank">
+                    <span class="icon-youtube"></span>
+                </a>
+                <a class="footer__social" href="/#feedback" target="_blank">
+                    <span class="icon-send"></span>
+                </a>
+                <a class="footer__social" href="https://wa.me/79080675295" target="_blank">
+                    <span class="icon-whatsapp"></span>
+                </a>
+            </div>
+            <div>
+                © 2021 Denis Zagvozdin | Project Idea —
+                <a class="footer__project_idea" href="https://scripteden.com/previews/Clean/" target="_blank">scripteden</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="{{ asset('js/articles.js') }}"></script>
+<script type="text/javascript">
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
     ym(80907394, "init", {
@@ -117,7 +109,7 @@
         accurateTrackBounce:true,
         webvisor:true
     });
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/80907394" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/80907394" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </body>
 </html>

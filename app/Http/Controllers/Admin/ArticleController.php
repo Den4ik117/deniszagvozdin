@@ -55,7 +55,7 @@ class ArticleController extends Controller
         if (!$article->visible && !auth()->check())
             abort(404);
 
-        return view('admin.articles.show', compact('article'));
+        return view('article', compact('article'));
     }
 
 

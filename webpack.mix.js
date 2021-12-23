@@ -12,7 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.sass('resources/scss/articles.scss', 'public/css')
-    .sass('resources/scss/article.scss', 'public/css') /* new */
     .sass('resources/scss/index-xl.scss', 'public/css')
     .sass('resources/scss/index-lg.scss', 'public/css')
     .sass('resources/scss/index-md.scss', 'public/css')
@@ -20,7 +19,6 @@ mix.sass('resources/scss/articles.scss', 'public/css')
     .sass('resources/scss/index-xs.scss', 'public/css')
     .js('resources/js/index.js', 'public/js')
     .js('resources/js/articles.js', 'public/js')
-    .js('resources/js/article.js', 'public/js') /* new */
     .js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),

@@ -153,19 +153,6 @@ function lazyScroll() {
 
 /***/ }),
 
-/***/ "./resources/scss/index-sm.scss":
-/*!**************************************!*\
-  !*** ./resources/scss/index-sm.scss ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./resources/scss/index-xs.scss":
 /*!**************************************!*\
   !*** ./resources/scss/index-xs.scss ***!
@@ -205,19 +192,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/scss/article.scss":
-/*!*************************************!*\
-  !*** ./resources/scss/article.scss ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./resources/scss/index-xl.scss":
 /*!**************************************!*\
   !*** ./resources/scss/index-xl.scss ***!
@@ -247,6 +221,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ "./resources/scss/index-md.scss":
 /*!**************************************!*\
   !*** ./resources/scss/index-md.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/scss/index-sm.scss":
+/*!**************************************!*\
+  !*** ./resources/scss/index-sm.scss ***!
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -344,14 +331,13 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/index": 0,
+/******/ 			"css/index-sm": 0,
 /******/ 			"css/index-md": 0,
 /******/ 			"css/index-lg": 0,
 /******/ 			"css/index-xl": 0,
-/******/ 			"css/article": 0,
 /******/ 			"css/articles": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/index-xs": 0,
-/******/ 			"css/index-sm": 0
+/******/ 			"css/index-xs": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -401,15 +387,14 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/js/index.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/scss/articles.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/scss/article.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/scss/index-xl.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/scss/index-lg.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/scss/index-md.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/scss/index-sm.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/scss/index-xs.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/index-md","css/index-lg","css/index-xl","css/article","css/articles","css/app","css/index-xs","css/index-sm"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/app","css/index-xs"], () => (__webpack_require__("./resources/js/index.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/app","css/index-xs"], () => (__webpack_require__("./resources/scss/articles.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/app","css/index-xs"], () => (__webpack_require__("./resources/scss/index-xl.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/app","css/index-xs"], () => (__webpack_require__("./resources/scss/index-lg.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/app","css/index-xs"], () => (__webpack_require__("./resources/scss/index-md.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/app","css/index-xs"], () => (__webpack_require__("./resources/scss/index-sm.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/app","css/index-xs"], () => (__webpack_require__("./resources/scss/index-xs.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/index-sm","css/index-md","css/index-lg","css/index-xl","css/articles","css/app","css/index-xs"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

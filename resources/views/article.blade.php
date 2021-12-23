@@ -14,7 +14,7 @@
     <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}">
     <meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}">
     <title>{{ $article->title }} | Denis Zagvozdin</title>
-    <link rel="stylesheet" href="{{ asset('css/article.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/articles.css') }}">
     <link rel="shortcut icon" href={{ asset('favicon.ico') }} type="image/x-icon">
 </head>
 <body>
@@ -55,67 +55,45 @@
             </div>
         </div>
 
-            <main class="main">
-                <div class="container">
-                    <div class="main__row">
-                        <div class="main__content text">
-                            {!! $article->content_html !!}
-                        </div>
-                        <div>
-                            <div class="main__aside">
-                                <div>
-                                    Меня зовут Денис, на протяжении 5 лет я изучаю создание сайтов.
-                                </div>
-                                <div>
-                                    Основная специализация:
-                                    <ol>
-                                        <li>создание лендингов</li>
-                                        <li>проектирование админок</li>
-                                        <li>разработка CRM и ERP</li>
-                                        <li>вёрстка шаблона</li>
-                                    </ol>
-                                </div>
-                                <div>
-                                    По каким вопросам в основном обращаются ко мне?
-                                </div>
+        <main class="main">
+            <div class="container">
+                <div class="main__row">
+                    <div class="main__content text">
+                        {!! $article->content_html !!}
+                    </div>
+                    <div>
+                        <div class="main__aside">
+                            <div>
+                                Меня зовут Денис, на протяжении 5 лет я изучаю создание сайтов.
+                            </div>
+                            <div>
+                                Основная специализация:
                                 <ol>
-                                    <li>сверстать макет</li>
-                                    <li>создать лендинг с нуля, имея чёткий план</li>
-                                    <li>разработать приложение, которое облегчит работу специалистам</li>
-                                    <li>админка, помогающая управлять контентом на сайте</li>
-                                    <li>блог</li>
-                                    <li>админка с возможностью формирования DOCX или PDF отчёта</li>
+                                    <li>создание лендингов</li>
+                                    <li>проектирование админок</li>
+                                    <li>разработка CRM и ERP</li>
+                                    <li>вёрстка шаблона</li>
                                 </ol>
-                                <div>
-                                    Заявку можно оставить в Telegram по номеру 8-908-067-52-95
-                                </div>
+                            </div>
+                            <div>
+                                По каким вопросам в основном обращаются ко мне?
+                            </div>
+                            <ol>
+                                <li>сверстать макет</li>
+                                <li>создать лендинг с нуля, имея чёткий план</li>
+                                <li>разработать приложение, которое облегчит работу специалистам</li>
+                                <li>админка, помогающая управлять контентом на сайте</li>
+                                <li>блог</li>
+                                <li>админка с возможностью формирования DOCX или PDF отчёта</li>
+                            </ol>
+                            <div>
+                                Заявку можно оставить в Telegram по номеру 8-908-067-52-95
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-
-        {{--    <main class="articles">--}}
-        {{--        <div class="container">--}}
-        {{--            <div class="articles__row">--}}
-        {{--                @foreach($articles as $article)--}}
-        {{--                    <article class="articles__article">--}}
-        {{--                        <a href="{{ route('articles.show', $article->slug) }}">--}}
-        {{--                            <img class="articles__image" src="{{ $article->files[0]->path }}">--}}
-        {{--                        </a>--}}
-        {{--                        <div class="articles__description">--}}
-        {{--                            <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>--}}
-        {{--                            <span class="articles__preview">{{ $article->preview }}</span>--}}
-        {{--                        </div>--}}
-        {{--                        <div class="articles__info">--}}
-        {{--                            <span>{{ $article->created_at->format('d.m.Y') }}</span>--}}
-        {{--                            <span>{{ $article->user->full_name }}</span>--}}
-        {{--                        </div>--}}
-        {{--                    </article>--}}
-        {{--                @endforeach--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
-        {{--    </main>--}}
+            </div>
+        </main>
 
         <footer class="footer">
             <div class="container">
@@ -144,6 +122,19 @@
         </footer>
     </div>
 
-    <script src="{{ asset('js/article.js') }}"></script>
+    <script src="{{ asset('js/articles.js') }}"></script>
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(80907394, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/80907394" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </body>
 </html>
