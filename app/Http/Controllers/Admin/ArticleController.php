@@ -9,6 +9,14 @@ use Parsedown;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:articles.view')->only('index');
+        $this->middleware('can:articles.create')->only('create', 'store');
+        $this->middleware('can:articles.update')->only('edit', 'update');
+        $this->middleware('can:articles.delete')->only('destroy');
+    }
+
     public function index()
     {
         $articles = Article::latest()->get();

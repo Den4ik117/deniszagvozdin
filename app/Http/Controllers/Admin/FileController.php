@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:files.view')->only('index');
+        $this->middleware('can:files.create')->only('create', 'store');
+        $this->middleware('can:files.delete')->only('destroy');
+    }
+
     public function index()
     {
         $files = File::latest()->get();

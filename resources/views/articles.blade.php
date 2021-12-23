@@ -52,19 +52,21 @@
         <div class="container">
             <div class="articles__row">
                 @foreach($articles as $article)
-                    <article class="articles__article">
-                        <a href="{{ route('articles.show', $article->slug) }}">
-                            <img class="articles__image" src="{{ $article->files[0]->path }}">
-                        </a>
-                        <div class="articles__description">
-                            <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
-                            <span class="articles__preview">{{ $article->preview }}</span>
-                        </div>
-                        <div class="articles__info">
-                            <span>{{ $article->created_at->format('d.m.Y') }}</span>
-                            <span>{{ $article->user->full_name }}</span>
-                        </div>
-                    </article>
+                    @if($article->visible)
+                        <article class="articles__article">
+                            <a href="{{ route('articles.show', $article->slug) }}">
+                                <img class="articles__image" src="{{ $article->files[0]->path }}">
+                            </a>
+                            <div class="articles__description">
+                                <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
+                                <span class="articles__preview">{{ $article->preview }}</span>
+                            </div>
+                            <div class="articles__info">
+                                <span>{{ $article->created_at->format('d.m.Y') }}</span>
+                                <span>{{ $article->user->full_name }}</span>
+                            </div>
+                        </article>
+                    @endif
                 @endforeach
             </div>
         </div>
