@@ -457,21 +457,21 @@
                 <div class="titles__text">Моя жизнь, мысли, идеи, уроки</div>
             </div>
             <div class="wrapper">
-                <p style="text-align: center; font-style: italic">Пока ничего :(</p>
-                {{-- <div class="blog__articles">
-          <div class="blog__article" data-src="/images/main_background_image.jpg" style="background-image: url(/images/1x1.png);">
-            <div class="blog__title">Работа из дома: миф или реальность?</div>
-            <a class="blog__link" href="#"></a>
-          </div>
-          <div class="blog__article" data-src="/images/main_background_image.jpg" style="background-image: url(/images/1x1.png);">
-            <div class="blog__title">Работа из дома: миф или реальность?</div>
-            <a class="blog__link" href="#"></a>
-          </div>
-          <div class="blog__article" data-src="/images/main_background_image.jpg" style="background-image: url(/images/1x1.png);">
-            <div class="blog__title">Работа из дома: миф или реальность?</div>
-            <a class="blog__link" href="#"></a>
-          </div>
-        </div> --}}
+{{--                <p style="text-align: center; font-style: italic">Пока ничего :(</p>--}}
+                <div class="blog__articles">
+                  <div class="blog__article" data-src="/files/1/QBrS1yH6TB9SPA4VRQx1ukwRqq9ahRMuVjAiPy1x.jpg" style="background-image: url(/images/1x1.png);">
+                    <div class="blog__title">Искусство создания веб-приложений. Как научится делать потрясающие сайты?</div>
+                    <a class="blog__link" href="/articles/iskusstvo-sozdaniya-veb-prilozenii-kak-naucitsya-delat-potryasayushhie-saity"></a>
+                  </div>
+                  <div class="blog__article" data-src="/files/2/fQaEusvj7HXb1GueCmb4QN7664W5On6QEdEppxzV.png" style="background-image: url(/images/1x1.png);">
+                    <div class="blog__title">История создания сайта deniszagvozdin.ru</div>
+                    <a class="blog__link" href="/articles/istoriya-sozdaniya-saita-deniszagvozdinru"></a>
+                  </div>
+{{--                  <div class="blog__article" data-src="/images/main_background_image.jpg" style="background-image: url(/images/1x1.png);">--}}
+{{--                    <div class="blog__title">Работа из дома: миф или реальность?</div>--}}
+{{--                    <a class="blog__link" href="#"></a>--}}
+{{--                  </div>--}}
+                </div>
             </div>
         </div>
     </section>
