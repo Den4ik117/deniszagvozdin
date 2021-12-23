@@ -84,8 +84,24 @@ table {
   content: "\e904";
 }
 
+.icon-send::before {
+  content: "\e90b";
+}
+
 .icon-whatsapp::before {
   content: "\e905";
+}
+
+.icon-burger::before {
+  content: "\e902";
+}
+
+.icon-close::before {
+  content: "\e901";
+}
+
+.icon-vk::before {
+  content: "\e913";
 }
 
 .scrollbox::-webkit-scrollbar {
@@ -118,9 +134,10 @@ body {
 }
 
 .container {
-  max-width: 1070px;
+  max-width: 1170px;
   display: block;
   margin: 0 auto;
+  padding: 0 32px;
 }
 
 #line {
@@ -331,8 +348,7 @@ body {
 #modal .modal__content {
   max-width: 500px;
   display: block;
-  margin: 0 auto;
-  margin-top: 20vh;
+  margin: 20vh auto 0;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: white;
   border-radius: 6px;
@@ -372,10 +388,17 @@ body {
   border-radius: 3px;
   border: 1px solid #eee;
   background: white;
-  padding: 30px;
+  padding: 24px;
 }
 #article .article__banner {
-  padding: 20px;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+#article .article__banner ol {
+  list-style: numeric inside;
 }
 
 .text img {
@@ -544,6 +567,10 @@ body {
   }
   #article .article__row {
     grid-template-columns: 1fr;
+  }
+
+  #main .main__title {
+    font-size: 2rem;
   }
 
   #menu {

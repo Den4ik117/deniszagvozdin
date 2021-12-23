@@ -18,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/article', function () {
+    $article = Article::findOrFail(1);
+    $articles = Article::all();
+
+    return view('article', compact('article', 'articles'));
+});
+
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::post('/', [IndexController::class, 'store'])->name('index.store');
 Route::get('/articles', [IndexController::class, 'articles'])->name('articles.index');

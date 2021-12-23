@@ -56,7 +56,7 @@
     </div>
     <div class="main__info">
         <span>{{ $article->created_at->format('d.m.Y') }}</span>
-        <span>{{ auth()->user()->full_name }}</span>
+        <span>{{ $article->user->full_name }}</span>
     </div>
 </div>
 
@@ -68,9 +68,35 @@
             </div>
             <div>
                 <div class="article__banner">
-                    <a href="/#feedback">
-                        <img src="/images/banner.png" alt="" width="100%">
-                    </a>
+{{--                    <a href="/#feedback">--}}
+                        <p>
+                            Меня зовут Денис, на протяжении 5 лет я изучаю создание сайтов.
+                        </p>
+                        <div>
+                            Основная специализация:
+                            <ol>
+                                <li>создание лендингов</li>
+                                <li>проектирование админок</li>
+                                <li>разработка CRM и ERP</li>
+                                <li>вёрстка шаблона</li>
+                            </ol>
+                        </div>
+                        <p>
+                            По каким вопросам в основном обращаются ко мне?
+                        </p>
+                        <ol>
+                            <li>сверстать макет</li>
+                            <li>создать лендинг с нуля, имея чёткий план</li>
+                            <li>разработать приложение, которое облегчит работу специалистам</li>
+                            <li>админка, помогающая управлять контентом на сайте</li>
+                            <li>блог</li>
+                            <li>админка с возможностью формирования DOCX или PDF отчёта</li>
+                        </ol>
+                        <p>
+                            Заявку можно оставить в Telegram по номеру 8-908-067-52-95
+                        </p>
+{{--                        <img src="/images/banner.jpg" alt="" width="100%">--}}
+{{--                    </a>--}}
                 </div>
             </div>
         </div>
@@ -94,24 +120,26 @@
 </div>
 
 <footer id="footer">
-    <div class="footer__socials">
-        <div class="footer__social">
-            <span class="icon-facebook"></span>
+    <div class="container">
+        <div class="footer__socials">
+            <div class="footer__social">
+                <span class="icon-facebook"></span>
+            </div>
+            <div class="footer__social">
+                <span class="icon-telegram"></span>
+            </div>
+            <div class="footer__social">
+                <span class="icon-youtube"></span>
+            </div>
+            <div class="footer__social">
+                <span class="icon-mail"></span>
+            </div>
+            <div class="footer__social">
+                <span class="icon-whatsapp"></span>
+            </div>
         </div>
-        <div class="footer__social">
-            <span class="icon-telegram"></span>
-        </div>
-        <div class="footer__social">
-            <span class="icon-youtube"></span>
-        </div>
-        <div class="footer__social">
-            <span class="icon-mail"></span>
-        </div>
-        <div class="footer__social">
-            <span class="icon-whatsapp"></span>
-        </div>
+        <div class="footer__copyrights">© 2021 Denis Zagvozdin | Project Idea —&nbsp;<a href="https://scripteden.com/previews/Clean/" target="_blank">scripteden</a></div>
     </div>
-    <div class="footer__copyrights">© 2021 Denis Zagvozdin | Project Idea —&nbsp;<a href="https://scripteden.com/previews/Clean/" target="_blank">scripteden</a></div>
 </footer>
 
 <script src="/js/articles.js"></script>

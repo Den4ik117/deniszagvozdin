@@ -18,9 +18,10 @@ body {
 }
 
 .container {
-    max-width: 1070px;
+    max-width: 1170px;
     display: block;
     margin: 0 auto;
+    padding: 0 32px;
 }
 
 //* ЛИНИЯ СВЕРХУ
@@ -266,8 +267,7 @@ body {
     .modal__content {
         max-width: 500px;
         display: block;
-        margin: 0 auto;
-        margin-top: 20vh;
+        margin: 20vh auto 0;
         border: 1px solid rgba(0, 0, 0, .2);
         background-color: white;
         border-radius: 6px;
@@ -313,13 +313,19 @@ body {
         border-radius: 3px;
         border: 1px solid #eee;
         background: white;
-        padding: 30px;
+        padding: 24px;
     }
 
     .article__banner {
-        padding: 20px;
-        // position: sticky;
-        // top: 98px;
+        font-size: 1.35rem;
+        line-height: 1.4;
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+
+        ol {
+            list-style: numeric inside;
+        }
     }
 }
 
@@ -531,6 +537,12 @@ body {
 
         .article__row {
             grid-template-columns: 1fr;
+        }
+    }
+
+    #main {
+        .main__title {
+            font-size: 2rem;
         }
     }
 

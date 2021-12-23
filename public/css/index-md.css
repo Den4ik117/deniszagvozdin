@@ -83,8 +83,24 @@ table {
   content: "\e904";
 }
 
+.icon-send::before {
+  content: "\e90b";
+}
+
 .icon-whatsapp::before {
   content: "\e905";
+}
+
+.icon-burger::before {
+  content: "\e902";
+}
+
+.icon-close::before {
+  content: "\e901";
+}
+
+.icon-vk::before {
+  content: "\e913";
 }
 
 *, *::after, *::before {
