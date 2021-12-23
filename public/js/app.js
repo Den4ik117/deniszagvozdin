@@ -1,13 +1,1 @@
-/******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-var burgerMenu = document.querySelector('.burger-menu');
-var menu = document.querySelector('.menu');
-burgerMenu.addEventListener('click', function (e) {
-  e.currentTarget.classList.toggle('active');
-  menu.classList.toggle('active');
-});
-/******/ })()
-;
+(()=>{var e=document.querySelector(".burger-menu"),t=document.querySelector(".menu");e.addEventListener("click",(function(e){e.currentTarget.classList.toggle("active"),t.classList.toggle("active")}))})();
