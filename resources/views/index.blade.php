@@ -590,7 +590,7 @@
                 <span class="icon-whatsapp"></span>
             </div>
         </div>
-        <div class="footer__copyrights">© 2021 Denis Zagvozdin | Project Idea —&nbsp;<a
+        <div class="footer__copyrights">© 2021–{{ date('Y') }} Denis Zagvozdin | Project Idea —&nbsp;<a
                 href="https://scripteden.com/previews/Clean/" target="_blank">scripteden</a></div>
     </footer>
 

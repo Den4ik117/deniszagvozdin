@@ -115,7 +115,7 @@
                     </a>
                 </div>
                 <div>
-                    © 2021 Denis Zagvozdin | Project Idea —
+                    © 2021–{{ date('Y') }} Denis Zagvozdin | Project Idea —
                     <a class="footer__project_idea" href="https://scripteden.com/previews/Clean/" target="_blank">scripteden</a>
                 </div>
             </div>
