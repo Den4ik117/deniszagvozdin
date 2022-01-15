@@ -24,11 +24,6 @@ class ArticleController extends Controller
         return view('admin.articles.index', compact('articles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.articles.create');
@@ -39,13 +34,9 @@ class ArticleController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:65535',
-//            'og_title' => 'required|string|max:255',
-//            'og_description' => 'required|string|max:255',
             'preview' => 'required|string|max:65535',
             'content_md' => 'required|string|max:16777215'
         ]);
-
-//        $parseDown = new Parsedown();
 
         Article::create([
             'title' => $request->input('title'),
@@ -82,24 +73,12 @@ class ArticleController extends Controller
 
     public function update(Request $request, Article $article, Parsedown $parseDown)
     {
-//        $validated = $request->validate([
-//            'title' => 'required|string|max:255',
-//            'description' => 'required|string|max:255',
-//            'og_title' => 'required|string|max:255',
-//            'og_description' => 'required|string|max:255',
-//            'preview' => 'required|string|max:255',
-//            'content_md' => 'required|string'
-//        ]);
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:65535',
-//            'og_title' => 'required|string|max:255',
-//            'og_description' => 'required|string|max:255',
             'preview' => 'required|string|max:65535',
             'content_md' => 'required|string|max:16777215'
         ]);
-
-//        $parseDown = new Parsedown();
 
         $article->update([
             'title' => $request->input('title'),
@@ -112,11 +91,6 @@ class ArticleController extends Controller
             'content_html' => $parseDown->text($request->input('content_md')),
             'priority' => $request->input('priority')
         ]);
-
-//        $article->update($validated + [
-//                'visible' => $request->boolean('visible'),
-//                'content_html' => $parseDown->text($request->content_md)
-//            ]);
 
         return back()->with('success', 'Статья успешно обновлена!');
     }

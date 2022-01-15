@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" prefix="og: https://ogp.me/ns#">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denis Zagvozdin | Создать сайт быстро и качественно</title>
-    <meta name="description"
-        content="Сайт Дениса Загвоздина. Создание сайтов: лендинг, сайт-визитка, сайт для предпринимателя, сайт для компании, блог">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <title>Denis Zagvozdin | Создание сайтов под ключ</title>
+    <meta name="description" content="Сайт-портфолио и по совместительству блог Дениса Загвоздина. создание сайтов под ключ ― лендинг, сайтов-визитка, сайт для предпринимателя, сайт для компании, блог">
+    <meta property="og:type" content="site">
+    <meta property="og:title" content="Сайт-портфолио, блог Дениса Загвоздина">
+    <meta property="og:description" content="Сайт-портфолио и по совместительству блог Дениса Загвоздина. создание сайтов под ключ ― лендинг, сайтов-визитка, сайт для предпринимателя, сайт для компании, блог">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="Создание сайтов под ключ от Full-stack разбработчика Дениса Загвоздина">
+    <meta property="og:image" content="{{ asset('images/og-image.jpg') }}">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <style>
         #preloader {
             position: fixed;
@@ -39,7 +45,7 @@
 </head>
 
 <body class="scrollbox">
-    <h1 style="position: absolute; top: -100px;">Создать сайт или лендинг быстро, качественно и недорого</h1>
+    <h1 style="position: absolute; top: -1000px;">Создать сайт или лендинг быстро, качественно и недорого</h1>
     <div id="preloader">
         <img src="/images/loading.gif" alt="Loading...">
     </div>
