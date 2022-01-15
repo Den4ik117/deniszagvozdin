@@ -611,6 +611,21 @@
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/80907394" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Person",
+          "name": "Denis Zagvozdin",
+          "url": "https://deniszagvozdin.ru/",
+          "image": "https://deniszagvozdin.ru/images/og-image.jpg",
+          "sameAs": [
+            "https://www.youtube.com/channel/UCbxqhdu5HwhZC2rE-a1MwrQ",
+            "https://github.com/Den4ik117",
+            "https://deniszagvozdin.ru"
+          ],
+          "jobTitle": "Создание сайтов под ключ"
+        }
+    </script>
 </body>
 
 </html>
