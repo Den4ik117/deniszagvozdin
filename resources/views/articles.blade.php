@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta property="description" content="Статьи, уроки, гайды, мысли Дениса Загвоздина">
+    <meta property="description" content="Блог Загвоздина Дениса: события из жизни, интересы, мысли, идеи, уроки, создание сайтов">
     <meta property="og:type" content="product">
     <meta property="og:title" content="Блог Дениса Загвоздина">
-    <meta property="og:description" content="Статьи, уроки, гайды, мысли Дениса Загвоздина">
+    <meta property="og:description" content="Блог Загвоздина Дениса: события из жизни, интересы, мысли, идеи, уроки, создание сайтов">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:site_name" content="Создание сайтов by Denis Zagvozdin">
-    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:site_name" content="Создание сайтов под ключ от Full-stack разбработчика Дениса Загвоздина">
+    <meta property="og:image" content="{{ asset('images/og-image-blog.jpg') }}">
+    <meta property="og:locale" content="ru_RU">
     <title>Блог Дениса Загвоздина</title>
     <link rel="stylesheet" href="{{ asset('css/articles.css') }}">
     <link rel="shortcut icon" href={{ asset('favicon.ico') }} type="image/x-icon">
@@ -55,14 +56,14 @@
                     @if($article->visible)
                         <article class="articles__article">
                             <a href="{{ route('articles.show', $article->slug) }}">
-                                <img class="articles__image" src="{{ $article->files[0]->path }}">
+                                <img class="articles__image" src="{{ $article->files[0]->path }}" alt="{{ $article->files[0]->path }}">
                             </a>
                             <div class="articles__description">
                                 <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
                                 <span class="articles__preview">{{ $article->preview }}</span>
                             </div>
                             <div class="articles__info">
-                                <span>{{ $article->created_at->format('d.m.Y') }}</span>
+                                <time pubdate datetime="{{ $article->created_at }}">{{ $article->created_at->format('d.m.Y') }}</time>
                                 <span>{{ $article->user->full_name }}</span>
                             </div>
                         </article>

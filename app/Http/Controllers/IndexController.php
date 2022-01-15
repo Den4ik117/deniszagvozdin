@@ -12,7 +12,9 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $articles = Article::where('visible', true)->orderBy('priority', 'DESC')->take(3)->get();
+
+        return view('index', compact(['articles']));
     }
 
     public function store(Request $request)

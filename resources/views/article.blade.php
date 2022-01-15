@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta property="description" content="{{ $article->description }}">
+    <meta name="author" content="{{ $article->user->full_name }}">
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ $article->og_title }}">
     <meta property="og:description" content="{{ $article->og_description }}">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:site_name" content="Создание сайтов by Denis Zagvozdin">
-    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:site_name" content="Создание сайтов под ключ от Full-stack разбработчика Дениса Загвоздина">
+    <meta property="og:image" content="{{ $article->files[0]->path }}">
+    <meta property="og:locale" content="ru_RU">
     <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}">
     <meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}">
     <title>{{ $article->title }} | Denis Zagvozdin</title>
@@ -48,7 +50,7 @@
                         <span class="title__crumb">{{ $article->title }}</span>
                     </div>
                     <div class="title__about">
-                        <span>{{ $article->created_at->format('d.m.Y') }}</span>
+                        <time datetime="{{ $article->created_at }}">{{ $article->created_at->format('d.m.Y') }}</time>
                         <span>{{ $article->user->full_name }}</span>
                     </div>
                 </div>
@@ -58,10 +60,10 @@
         <main class="main">
             <div class="container">
                 <div class="main__row">
-                    <div class="main__content text">
+                    <article class="main__content text">
                         {!! $article->content_html !!}
-                    </div>
-                    <div>
+                    </article>
+                    <aside>
                         <div class="main__aside">
                             <div>
                                 Меня зовут Денис, на протяжении 5 лет я изучаю создание сайтов.
@@ -90,7 +92,7 @@
                                 Заявку можно оставить в Telegram по номеру 8-908-067-52-95
                             </div>
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </div>
         </main>

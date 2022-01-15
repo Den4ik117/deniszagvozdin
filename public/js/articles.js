@@ -1,1 +1,26 @@
-(()=>{var e=document.querySelector("body"),t=document.querySelector(".header__open"),c=document.querySelector(".header__close"),d=document.querySelector(".header__menu"),o=document.querySelector(".header"),r=function(){d.classList.toggle("active"),e.classList.toggle("hidden")},n=function(){scrollY>15?o.classList.add("fixed"):o.classList.remove("fixed")};t.addEventListener("click",r),c.addEventListener("click",r),window.addEventListener("scroll",n),n()})();
+/******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!**********************************!*\
+  !*** ./resources/js/articles.js ***!
+  \**********************************/
+var body = document.querySelector('body');
+var openBtn = document.querySelector('.header__open');
+var closeBtn = document.querySelector('.header__close');
+var menu = document.querySelector('.header__menu');
+var header = document.querySelector('.header');
+
+var toggleMenu = function toggleMenu() {
+  menu.classList.toggle('active');
+  body.classList.toggle('hidden');
+};
+
+var stickHeader = function stickHeader() {
+  scrollY > 15 ? header.classList.add('fixed') : header.classList.remove('fixed');
+};
+
+openBtn.addEventListener('click', toggleMenu);
+closeBtn.addEventListener('click', toggleMenu);
+window.addEventListener('scroll', stickHeader);
+stickHeader();
+/******/ })()
+;

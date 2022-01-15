@@ -21,6 +21,7 @@ class Article extends Model
         'content_html',
         'preview',
         'visible',
+        'priority'
     ];
 
     public function getSlugOptions() : SlugOptions

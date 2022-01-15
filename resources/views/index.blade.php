@@ -113,16 +113,22 @@
             <div class="titles">
                 <div class="titles__header">Мои услуги</div>
                 <div class="titles__line"></div>
-                <div class="titles__text">Услуги, которые я оказываю</div>
+                <div class="titles__text">Весь процесс создания сайта я беру на себя, начиная с разработки дизайна и заканчивая публикацией на хостинге</div>
             </div>
             <div class="wrapper">
                 <div class="services__items">
                     <div class="services__item">
+                        <img class="services__image" src="/images/services/4.png" alt="" width="100px">
+                        <div class="services__text">
+                            <div class="services__service_name">Дизайн</div>
+                            <div class="service__service_description">Разработаю дизайн будущего сайта: будь то посадочная страница, блог, панель администратора, CRM или ERP</div>
+                        </div>
+                    </div>
+                    <div class="services__item">
                         <img class="services__image" src="/images/services/1.png" alt="" width="100px">
                         <div class="services__text">
                             <div class="services__service_name">Front End</div>
-                            <div class="service__service_description">Сверстаю адаптивный, отзывчивый сайт с макета или
-                                с похожего на Вашу задумку сайта</div>
+                            <div class="service__service_description">Сверстаю интерактивный, адаптивный, отзывчивый сайт с макета, сделанного мной или присланного Вами</div>
                         </div>
                     </div>
                     <div class="services__item">
@@ -130,7 +136,7 @@
                         <div class="services__text">
                             <div class="services__service_name">Back End</div>
                             <div class="service__service_description">Сделаю серверную часть сайта с регистрацией и
-                                авторизацией, надёжной системой оплаты, панелью администратора и др</div>
+                                авторизацией, надёжной системой оплаты, панелью администратора, ролями и разрешениями</div>
                         </div>
                     </div>
                     <div class="services__item">
@@ -138,15 +144,7 @@
                         <div class="services__text">
                             <div class="services__service_name">Хостинг</div>
                             <div class="service__service_description">Установлю сайт на хостинг, помогу с доменным
-                                именем, а также сделаю индексирование страниц для популярных браузеров</div>
-                        </div>
-                    </div>
-                    <div class="services__item">
-                        <img class="services__image" src="/images/services/4.png" alt="" width="100px">
-                        <div class="services__text">
-                            <div class="services__service_name">Консультация</div>
-                            <div class="service__service_description">Отвечу на Ваши вопросы, подскажу, исправлю баги на
-                                существующем сайте</div>
+                                именем, настрою статистику, оптимизирую для SEO-продвижения, отправлю сайт в индексацию</div>
                         </div>
                     </div>
                 </div>
@@ -361,7 +359,7 @@
                         <div class="skills__pie_chart">
                             <div class="skills__pie_chart_content">84%</div>
                         </div>
-                        <div class="skills__description">Сервер & Хостинг</div>
+                        <div class="skills__description">Дизайн & Figma</div>
                     </div>
                 </div>
             </div>
@@ -394,7 +392,7 @@
             <div class="titles">
                 <div class="titles__header">Цены и сроки</div>
                 <div class="titles__line"></div>
-                <div class="titles__text">Здесь представлены виды сайтов, которые я делаю, цены и сроки</div>
+                <div class="titles__text">Под свою разработку беру как сайты под ключ, так и отдельно дизайн/верстку/серверную часть</div>
             </div>
             <div class="wrapper">
                 <div class="pricing__items">
@@ -457,21 +455,18 @@
                 <div class="titles__text">Моя жизнь, мысли, идеи, уроки</div>
             </div>
             <div class="wrapper">
-{{--                <p style="text-align: center; font-style: italic">Пока ничего :(</p>--}}
-                <div class="blog__articles">
-                  <div class="blog__article" data-src="/files/1/QBrS1yH6TB9SPA4VRQx1ukwRqq9ahRMuVjAiPy1x.jpg" style="background-image: url(/images/1x1.png);">
-                    <div class="blog__title">Искусство создания веб-приложений. Как научится делать потрясающие сайты?</div>
-                    <a class="blog__link" href="/articles/iskusstvo-sozdaniya-veb-prilozenii-kak-naucitsya-delat-potryasayushhie-saity"></a>
-                  </div>
-                  <div class="blog__article" data-src="/files/2/fQaEusvj7HXb1GueCmb4QN7664W5On6QEdEppxzV.png" style="background-image: url(/images/1x1.png);">
-                    <div class="blog__title">История создания сайта deniszagvozdin.ru</div>
-                    <a class="blog__link" href="/articles/istoriya-sozdaniya-saita-deniszagvozdinru"></a>
-                  </div>
-{{--                  <div class="blog__article" data-src="/images/main_background_image.jpg" style="background-image: url(/images/1x1.png);">--}}
-{{--                    <div class="blog__title">Работа из дома: миф или реальность?</div>--}}
-{{--                    <a class="blog__link" href="#"></a>--}}
-{{--                  </div>--}}
-                </div>
+                @if($articles->isEmpty())
+                    <p style="text-align: center; font-style: italic">Пока ничего :(</p>
+                @else
+                    <div class="blog__articles">
+                        @foreach($articles as $article)
+                            <div class="blog__article" data-src="{{ $article->files[0]->path }}" style="background-image: url({{ asset('images/1x1.png') }});">
+                                <div class="blog__title">{{ $article->title }}</div>
+                                <a class="blog__link" href="{{ route('articles.show', $article->slug) }}"></a>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div>
     </section>

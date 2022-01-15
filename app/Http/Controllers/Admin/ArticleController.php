@@ -34,24 +34,30 @@ class ArticleController extends Controller
         return view('admin.articles.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Parsedown $parseDown)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'og_title' => 'required|string|max:255',
-            'og_description' => 'required|string|max:255',
-            'preview' => 'required|string|max:255',
-            'content_md' => 'required|string'
+            'description' => 'required|string|max:65535',
+//            'og_title' => 'required|string|max:255',
+//            'og_description' => 'required|string|max:255',
+            'preview' => 'required|string|max:65535',
+            'content_md' => 'required|string|max:16777215'
         ]);
 
-        $parseDown = new Parsedown();
+//        $parseDown = new Parsedown();
 
-        Article::create($validated + [
-                'user_id' => auth()->user()->id,
-                'visible' => $request->boolean('visible'),
-                'content_html' => $parseDown->text($request->content_md)
-            ]);
+        Article::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'og_title' => $request->input('title'),
+            'og_description' => $request->input('description'),
+            'preview' => $request->input('preview'),
+            'user_id' => auth()->user()->id,
+            'visible' => $request->boolean('visible'),
+            'content_md' => $request->input('content_md'),
+            'content_html' => $parseDown->text($request->input('content_md'))
+        ]);
 
         return redirect()->route('admin.articles.index')->with('success', 'Статья успешно создана!');
     }
@@ -74,23 +80,43 @@ class ArticleController extends Controller
         return view('admin.articles.edit', compact(['article', 'files']));
     }
 
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Article $article, Parsedown $parseDown)
     {
-        $validated = $request->validate([
+//        $validated = $request->validate([
+//            'title' => 'required|string|max:255',
+//            'description' => 'required|string|max:255',
+//            'og_title' => 'required|string|max:255',
+//            'og_description' => 'required|string|max:255',
+//            'preview' => 'required|string|max:255',
+//            'content_md' => 'required|string'
+//        ]);
+        $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'og_title' => 'required|string|max:255',
-            'og_description' => 'required|string|max:255',
-            'preview' => 'required|string|max:255',
-            'content_md' => 'required|string'
+            'description' => 'required|string|max:65535',
+//            'og_title' => 'required|string|max:255',
+//            'og_description' => 'required|string|max:255',
+            'preview' => 'required|string|max:65535',
+            'content_md' => 'required|string|max:16777215'
         ]);
 
-        $parseDown = new Parsedown();
+//        $parseDown = new Parsedown();
 
-        $article->update($validated + [
-                'visible' => $request->boolean('visible'),
-                'content_html' => $parseDown->text($request->content_md)
-            ]);
+        $article->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'og_title' => $request->input('title'),
+            'og_description' => $request->input('description'),
+            'preview' => $request->input('preview'),
+            'visible' => $request->boolean('visible'),
+            'content_md' => $request->input('content_md'),
+            'content_html' => $parseDown->text($request->input('content_md')),
+            'priority' => $request->input('priority')
+        ]);
+
+//        $article->update($validated + [
+//                'visible' => $request->boolean('visible'),
+//                'content_html' => $parseDown->text($request->content_md)
+//            ]);
 
         return back()->with('success', 'Статья успешно обновлена!');
     }
