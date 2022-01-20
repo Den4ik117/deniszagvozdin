@@ -539,7 +539,7 @@
                     <textarea class="feedback__textarea" name="message" rows="8"
                         placeholder="Введите сообщение">{{ old('message') }}</textarea>
                     @endif
-                    
+
                     <button class="feedback__button" type="submit">Отправить сообщение</button>
                     <div class="feedback__text">
                         <small class="feedback__privacy">Нажимая кнопку «Отправить сообщение» вы даёте согласие на
