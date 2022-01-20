@@ -263,6 +263,13 @@ ul, ol {
             padding: 8px 16px;
         }
     }
+
+    pre {
+        margin-bottom: 16px;
+        overflow-x: auto;
+        background-color: #fafafa;
+        padding: 4px;
+    }
 }
 
 .footer {
