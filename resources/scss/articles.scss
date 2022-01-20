@@ -228,7 +228,7 @@ ul, ol {
     }
 }
 
-.text:not(.gist) {
+.text {
     p {
         margin-bottom: 16px;
     }
@@ -249,7 +249,7 @@ ul, ol {
         margin: 0 0 16px 16px;
     }
 
-    table {
+    table:not(.gist table) {
         border-collapse: collapse;
         width: 100%;
         margin-bottom: 16px;
