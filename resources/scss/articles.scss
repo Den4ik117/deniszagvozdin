@@ -163,9 +163,9 @@ ul, ol {
     }
 
     .main__content {
-        text-align: justify;
         font-size: 1.0625rem;
         line-height: 1.6875rem;
+        overflow-x: hidden;
     }
 
     .main__aside {
@@ -231,6 +231,7 @@ ul, ol {
 .text {
     p {
         margin-bottom: 16px;
+        text-align: justify;
     }
 
     img {
@@ -243,6 +244,14 @@ ul, ol {
         font-weight: bold;
         margin-bottom: 8px;
         color: #269865;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
     }
 
     ul, ol {
@@ -264,10 +273,18 @@ ul, ol {
         }
     }
 
+    :not(pre) code {
+        color: #bd4147;
+        background-color: #f7f7f9;
+    }
+
     pre {
         margin-bottom: 16px;
         overflow-x: auto;
-        padding: 4px;
+        padding: 4px 8px;
+        background-color: #282c34;
+        color: #abb2bf;
+        border-radius: 8px;
     }
 }
 

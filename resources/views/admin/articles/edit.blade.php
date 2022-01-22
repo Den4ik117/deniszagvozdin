@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Создать статью')
+@section('title', 'Редактировать статью')
 
 @section('header')
     <div class="flex items-center justify-between py-2">
@@ -74,47 +74,33 @@
     @endif
     <div class="mt-6">
         <div class="md:grid md:grid-cols-4 md:gap-6">
-            {{-- <div class="md:col-span-1">
-              <div class="px-4 sm:px-0">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-                <p class="mt-1 text-sm text-gray-600">
-                  Use a permanent address where you can receive mail.
-                </p>
-              </div>
-            </div> --}}
             <div class="mt-5 md:mt-0 md:col-span-4">
                 <form id="form" action="{{ route('admin.articles.update', $article->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <div class="grid grid-cols-6 gap-6">
+                            <div class="grid grid-cols-6 gap-6" x-data="{
+                                title: '{{ old('title') ?? $article->title }}',
+                                description: '{{ old('description') ?? $article->description }}',
+                                preview: '{{ old('preview') ?? $article->preview }}'
+                            }">
                                 <div class="col-span-6">
                                     <label for="title" class="block text-sm font-medium text-gray-700">Заголовок:</label>
-                                    <input id="title" type="text" name="title" autocomplete="off" required @input="title = $event.target.value.length" value="{{ $article->title }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                    <small class="block mt-1">Символов: @{{ title }} из 255</small>
+                                    <input id="title" type="text" name="title" autocomplete="off" required x-model="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    <small class="block mt-1">Символов: <span x-text="title.length"></span> из 255</small>
                                 </div>
 
                                 <div class="col-span-6">
                                     <label for="description" class="block text-sm font-medium text-gray-700">Описание статьи:</label>
-                                    <textarea id="description" name="description" rows="3" required @input="description = $event.target.value.length" class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $article->description }}</textarea>
-                                    <small class="block mt-1">Символов: @{{ description }} из 320 (рекомедуется от 160 до 290 символов)</small>
+                                    <textarea id="description" name="description" rows="3" required x-model="description" class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $article->description }}</textarea>
+                                    <small class="block mt-1">Символов: <span x-text="description.length"></span> из 320 (рекомедуется от 160 до 290 символов)</small>
                                 </div>
-
-{{--                                <div class="col-span-6">--}}
-{{--                                    <label for="og_title" class="block text-sm font-medium text-gray-700">Заголовок для соцсетей:</label>--}}
-{{--                                    <input id="og_title" type="text" name="og_title" autocomplete="off" required value="{{ $article->og_title }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">--}}
-{{--                                </div>--}}
-
-{{--                                <div class="col-span-6">--}}
-{{--                                    <label for="og_description" class="block text-sm font-medium text-gray-700">Описание статьи для соцсетей:</label>--}}
-{{--                                    <textarea id="og_description" name="og_description" rows="3" required class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $article->og_description }}</textarea>--}}
-{{--                                </div>--}}
 
                                 <div class="col-span-6">
                                     <label for="preview" class="block text-sm font-medium text-gray-700">Текст из начала статьи:</label>
-                                    <textarea id="preview" name="preview" rows="6" required @input="preview = $event.target.value.length" class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ old('preview') ?? $article->preview }}</textarea>
-                                    <small class="block mt-1">@{{ preview }} символов</small>
+                                    <textarea id="preview" name="preview" rows="6" required x-model="preview" class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                                    <small class="block mt-1"><span x-text="preview.length"></span> символов</small>
                                 </div>
 
                                 <div class="col-span-6">
@@ -124,8 +110,7 @@
 
                                 <div class="col-span-6">
                                     <label for="content_md" class="block text-sm font-medium text-gray-700">Содержание:</label>
-                                    <textarea id="content_md" name="content_md" rows="40" required @input="content = $event.target.value.length" class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ old('content_md') ?? $article->content_md }}</textarea>
-                                    <small class="block mt-1">@{{ content }} символов</small>
+                                    <textarea id="content_md" name="content_md" rows="40" required class="mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ old('content_md') ?? $article->content_md }}</textarea>
                                 </div>
 
                                 <div class="col-span-6">
@@ -153,17 +138,5 @@
 @endsection
 
 @section('scripts')
-    <script src="https://unpkg.com/vue@next"></script>
-    <script>
-        Vue.createApp({
-            data() {
-                return {
-                    title: {{ Str::length($article->title) }},
-                    description: {{ Str::length($article->description) }},
-                    preview: {{ Str::length($article->preview) }},
-                    content: {{ Str::length($article->content_md) }}
-                }
-            }
-        }).mount('#form');
-    </script>
+    <script defer src="https://unpkg.com/alpinejs@3.8.1/dist/cdn.min.js"></script>
 @endsection
