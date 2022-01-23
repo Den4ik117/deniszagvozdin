@@ -92,13 +92,13 @@ class ArticleController extends Controller
             'priority' => $request->input('priority')
         ]);
 
-        return back()->with('success', 'Статья успешно обновлена!');
+        return redirect()->route('admin.articles.edit', $article->id)->with('success', 'Статья успешно обновлена!');
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
 
-        return back()->with('success', 'Статья успешно удалена!');
+        return redirect()->route('admin.articles.index')->with('success', 'Статья успешно удалена!');
     }
 }

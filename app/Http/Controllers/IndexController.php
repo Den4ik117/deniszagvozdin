@@ -41,7 +41,7 @@ class IndexController extends Controller
 
         Mail::to(config('mail.to'))->send(new Message($validated));
 
-        return back()->with('success', 'Сообщение успешно отправлено!');
+        return redirect()->route('index', '#feedback')->with('success', 'Сообщение успешно отправлено!');
     }
 
     public function articles()
