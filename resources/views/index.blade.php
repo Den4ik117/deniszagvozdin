@@ -28,8 +28,7 @@
 
         #preloader img {
             display: block;
-            margin: 0 auto;
-            margin-top: 40vh;
+            margin: 40vh auto 0;
             width: 48px;
         }
 
@@ -44,7 +43,7 @@
     <link rel="stylesheet" href="/css/index-xs.css" media="screen and (max-width: 575px)">
 </head>
 
-<body class="scrollbox">
+<body>
     <h1 style="position: absolute; top: -1000px;">Создать сайт или лендинг быстро, качественно и недорого</h1>
     <div id="preloader">
         <img src="/images/loading.gif" alt="Loading...">
@@ -52,23 +51,32 @@
     <script type="text/javascript">
         var preloader = document.getElementById('preloader');
 
-    function fadeOut(el) {
-      el.style.opacity = 1;
-      var interpreloader = setInterval(function () {
-        el.style.opacity = el.style.opacity - 0.05;
-        if (el.style.opacity <= 0.05) {
-          clearInterval(interpreloader);
-          preloader.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-      }, 16);
-    }
+    // function fadeOut(el) {
+    //   el.style.opacity = 1;
+    //   var interpreloader = setInterval(function () {
+    //     el.style.opacity = el.style.opacity - 0.05;
+    //     if (el.style.opacity <= 0.05) {
+    //       clearInterval(interpreloader);
+    //       preloader.style.display = 'none';
+    //       document.body.style.overflow = 'auto';
+    //     }
+    //   }, 16);
+    // }
 
-    window.onload = function () {
-      setTimeout(function () {
-        fadeOut(preloader);
-      }, 600);
-    };
+        window.onload = function () {
+          setTimeout(function () {
+            // fadeOut(preloader);
+              preloader.style.opacity = 1;
+              var interval = setInterval(function () {
+                  preloader.style.opacity = preloader.style.opacity - 0.05;
+                  if (preloader.style.opacity <= 0.05) {
+                      clearInterval(interval);
+                      preloader.style.display = 'none';
+                      document.body.style.overflow = 'auto';
+                  }
+              }, 16);
+          }, 600);
+        };
     </script>
 
     <main id="main">
@@ -91,7 +99,7 @@
                     <li class="header__link"><a href="#main">Главная</a></li>
                     <li class="header__link"><a href="#services">Услуги</a></li>
                     <li class="header__link"><a href="#portfolio">Портфолио</a></li>
-                    <li class="header__link"><a href="#skills">Навыки и умения</a></li>
+{{--                    <li class="header__link"><a href="#skills">Навыки и умения</a></li>--}}
                     <li class="header__link"><a href="#about">Обо мне</a></li>
                     <li class="header__link"><a href="#feedback">Связь со мной</a></li>
                 </ul>
@@ -106,7 +114,7 @@
             <li class="menu__link"><a href="#main">Главная</a></li>
             <li class="menu__link"><a href="#services">Услуги</a></li>
             <li class="menu__link"><a href="#portfolio">Портфолио</a></li>
-            <li class="menu__link"><a href="#skills">Навыки и умения</a></li>
+{{--            <li class="menu__link"><a href="#skills">Навыки и умения</a></li>--}}
             <li class="menu__link"><a href="#about">Обо мне</a></li>
             <li class="menu__link"><a href="#pricing">Цены и сроки</a></li>
             <li class="menu__link"><a href="#blog">Блог</a></li>
@@ -117,7 +125,7 @@
     <section id="services">
         <div class="container">
             <div class="titles">
-                <div class="titles__header">Мои услуги</div>
+                <div class="titles__header">Что включает в себя разработка?</div>
                 <div class="titles__line"></div>
                 <div class="titles__text">Весь процесс создания сайта я беру на себя, начиная с разработки дизайна и заканчивая публикацией на хостинге</div>
             </div>
@@ -174,7 +182,7 @@
                             <div class="portfolio__button">Посмотреть проект</div>
                         </div>
                         <div class="popup">
-                            <div class="popup__content scrollbox">
+                            <div class="popup__content">
                                 <div class="popup__title">Проект онлайн школа «TeoSchool»</div>
                                 <div class="popup__description">Мой стартап, который ни к чему не привёл, но тем не
                                     менее был создан крутой сайт, была сделана классная админка и было получено море
@@ -202,7 +210,7 @@
                             <div class="portfolio__button">Посмотреть проект</div>
                         </div>
                         <div class="popup">
-                            <div class="popup__content scrollbox">
+                            <div class="popup__content">
                                 <div class="popup__title">Проект «Свой первый личный сайт»</div>
                                 <div class="popup__description">Идея создать собственный сайт зародилась у меня ещё в
                                     2019 году. Тогда и началась медленная работа над сайтом: сбор идей дизайна, создание
@@ -246,7 +254,7 @@
                             <div class="portfolio__button">Посмотреть проект</div>
                         </div>
                         <div class="popup">
-                            <div class="popup__content scrollbox">
+                            <div class="popup__content">
                                 <div class="popup__title">Проект «Ламинированные полы»</div>
                                 <div class="popup__description">Сайт для компании, которая занимается созданием и
                                     продажей полов для дома</div>
@@ -270,7 +278,7 @@
                             <div class="portfolio__button">Посмотреть проект</div>
                         </div>
                         <div class="popup">
-                            <div class="popup__content scrollbox">
+                            <div class="popup__content">
                                 <div class="popup__title">Проект «Админка туроператора»</div>
                                 <div class="popup__description">Компании-туроператору понадобилась админка для
                                     фиксирования заказов и разных юридических распечаток</div>
@@ -290,7 +298,7 @@
                             <div class="portfolio__button">Посмотреть проект</div>
                         </div>
                         <div class="popup">
-                            <div class="popup__content scrollbox">
+                            <div class="popup__content">
                                 <div class="popup__title">Проект «Сайт библиотеки подсветки синтаксиса»</div>
                                 <div class="popup__description">Собственный движок для подстветки синтаксиса</div>
                                 <img class="popup__image" data-src="/images/portfolio/4/1.png" src="/images/1x1.png"
@@ -309,7 +317,7 @@
                             <div class="portfolio__button">Посмотреть проект</div>
                         </div>
                         <div class="popup">
-                            <div class="popup__content scrollbox">
+                            <div class="popup__content">
                                 <div class="popup__title">Проект «Мастера без посредников»</div>
                                 <div class="popup__description">Данный проект разрабатывался совместно с мастером,
                                     который от работы на платных сервисах решил перейти на собственно ручно созданный
@@ -334,6 +342,7 @@
         </div>
     </section>
 
+    {{--
     <section id="skills">
         <div class="container">
             <div class="titles">
@@ -377,6 +386,7 @@
         <div class="calltoaction__text">Я готов для срочных, амбициозных, экстраординарных проектов!</div>
         <a class="calltoaction__button" href="#feedback">Связаться со мной</a>
     </div>
+    --}}
 
     <section id="about">
         <div class="container">
@@ -410,8 +420,8 @@
                             SEO-показателей и привлечении новых клиентов. Посадочная страница — отличная возможность
                             расширить клиентскую базу</div>
                         <ul class="pricing__list">
-                            <li>15-50 тысяч рублей</li>
-                            <li>7-14 рабочих дней</li>
+                            <li>От 4 000 рублей</li>
+                            <li>От 3-х рабочих дней</li>
                         </ul>
                     </div>
                     <div class="pricing__item">
@@ -422,21 +432,16 @@
                             сможет посмотреть актуальную информацию для себя и, возможно, сможет заказать что-либо
                             онлайн</div>
                         <ul class="pricing__list">
-                            <li>20-100 тысяч рублей</li>
-                            <li>7-12 рабочих дней</li>
+                            <li>От 10 000 рублей</li>
+                            <li>От 7-ми рабочих дней</li>
                         </ul>
                     </div>
                     <div class="pricing__item">
-                        <div class="pricing__title">Интернет-магазин</div>
-                        <div class="pricing__description">Интернет-магазин доступен клиенту 24 часа в сутки, 7 дней в
-                            неделю; бизнес не привязан к конкретному региону — можно осуществлять торговлю из любой
-                            точки мира; «витрины» сайта безграничны, поэтому не возникнет проблем, с недостатком места;
-                            торговля онлайн, не нужно куда-либо идти — это далеко не полный список всех преимуществ
-                            интернет-магазина. В моём распоряжении навыки мощного инструмента Laravel, что позволяет
-                            делать качественные интернет-магазины</div>
+                        <div class="pricing__title">CRM и ERP системы, админка</div>
+                        <div class="pricing__description">В моём распоряжении мощный PHP фреймворк ― Laravel, который позволяет очень гибко строить системы управления взаимоотношениями с клиентами (CRM), системы планирования ресурсов (ERP) и панели адиминистратора</div>
                         <ul class="pricing__list">
-                            <li>20-100 тысяч рублей</li>
-                            <li>2-3 недели</li>
+                            <li>От 12 000 рублей</li>
+                            <li>От 10-ти рабочих дней</li>
                         </ul>
                     </div>
                     <div class="pricing__item">
@@ -444,8 +449,8 @@
                         <div class="pricing__description">Блог — интернет-дневник.<br><br>Ныне очень популярный вид
                             сайтов — блог. Готов быстро и качественно вам его сделать</div>
                         <ul class="pricing__list">
-                            <li>15-40 тысяч рублей</li>
-                            <li>1 неделя</li>
+                            <li>6 000 рублей</li>
+                            <li>От 4-х рабочих дней</li>
                         </ul>
                     </div>
                 </div>
@@ -595,22 +600,10 @@
                 href="https://scripteden.com/previews/Clean/" target="_blank">scripteden</a></div>
     </footer>
 
-    <script src="/js/index.js"></script>
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-    ym(80907394, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-    });
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/80907394" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
+    <script src="{{ asset('js/index.js') }}"></script>
+    @production
+        @include('layouts.metrics')
+    @endproduction
     <script type="application/ld+json">
         {
           "@context": "https://schema.org/",

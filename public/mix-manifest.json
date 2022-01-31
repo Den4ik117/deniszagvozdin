@@ -6,7 +6,7 @@
     "/css/index-md.css": "/css/index-md.css",
     "/css/index-lg.css": "/css/index-lg.css",
     "/css/index-xl.css": "/css/index-xl.css",
+    "/css/index-xs.css": "/css/index-xs.css",
     "/css/articles.css": "/css/articles.css",
-    "/css/app.css": "/css/app.css",
-    "/css/index-xs.css": "/css/index-xs.css"
+    "/css/app.css": "/css/app.css"
 }
