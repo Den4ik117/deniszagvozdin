@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::group(['prefix' => 'admin', 'name' => 'admin.', 'middleware' => ['auth', 
 
    Route::resource('articles', ArticleController::class)->except('show');
    Route::resource('files', FileController::class)->except('show', 'edit', 'update');
+   Route::resource('orders', OrderController::class);
 });
 
 require __DIR__.'/auth.php';
