@@ -52,22 +52,20 @@
         <main class="articles">
             <div class="container">
                 <div class="articles__row">
-                    @foreach($articles as $article)
-                        @if($article->visible)
-                            <article class="articles__article">
-                                <a href="{{ route('articles.show', $article->slug) }}">
-                                    <img class="articles__image" src="{{ $article->files[0]->path }}" alt="{{ $article->files[0]->path }}">
-                                </a>
-                                <div class="articles__description">
-                                    <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
-                                    <span class="articles__preview">{{ $article->preview }}</span>
-                                </div>
-                                <div class="articles__info">
-                                    <time pubdate datetime="{{ $article->created_at }}">{{ $article->created_at->format('d.m.Y') }}</time>
-                                    <span>{{ $article->user->full_name }}</span>
-                                </div>
-                            </article>
-                        @endif
+                    @foreach ($articles as $article)
+                        <article class="articles__article">
+                            <a href="{{ route('articles.show', $article->slug) }}">
+                                <img class="articles__image" src="{{ $article->files[0]->path ?? '' }}" alt="{{ $article->files[0]->path ?? '' }}">
+                            </a>
+                            <div class="articles__description">
+                                <a class="articles__title" href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
+                                <span class="articles__preview">{{ $article->lead }}</span>
+                            </div>
+                            <div class="articles__info">
+                                <time pubdate datetime="{{ $article->published_at }}">{{ $article->published_at->format('d.m.Y') }}</time>
+                                <span>{{ $article->author }}</span>
+                            </div>
+                        </article>
                     @endforeach
                 </div>
             </div>

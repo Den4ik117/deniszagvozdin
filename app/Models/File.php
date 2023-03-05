@@ -11,6 +11,7 @@ class File extends Model
 
     protected $fillable = [
         'article_id',
+        'origin_name',
         'path'
     ];
 }

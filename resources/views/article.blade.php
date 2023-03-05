@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta property="description" content="{{ $article->description }}">
-    <meta name="author" content="{{ $article->user->full_name }}">
+    <meta name="author" content="{{ $article->author }}">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ $article->og_title }}">
-    <meta property="og:description" content="{{ $article->og_description }}">
+    <meta property="og:title" content="{{ $article->title }}">
+    <meta property="og:description" content="{{ $article->description }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="Создание сайтов под ключ от Full-stack разбработчика Дениса Загвоздина">
     <meta property="og:image" content="{{ $article->files[0]->path }}">
     <meta property="og:locale" content="ru_RU">
-    <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}">
-    <meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}">
+    <meta property="article:published_time" content="{{ $article->published_at->toIso8601String() }}">
+    <meta property="article:modified_time" content="{{ $article->published_at->toIso8601String() }}">
     <title>{{ $article->title }} | Denis Zagvozdin</title>
     <link rel="stylesheet" href="{{ asset('css/articles.css') }}">
     <link rel="shortcut icon" href={{ asset('favicon.ico') }} type="image/x-icon">
+    <style>.hljs{display:block;overflow-x:auto;padding:.5em;color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title{color:#e6c07b}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}</style>
 </head>
 <body>
     <header class="header">
@@ -50,8 +51,8 @@
                         <span class="title__crumb">{{ $article->title }}</span>
                     </div>
                     <div class="title__about">
-                        <time datetime="{{ $article->created_at }}">{{ $article->created_at->format('d.m.Y') }}</time>
-                        <span>{{ $article->user->full_name }}</span>
+                        <time datetime="{{ $article->published_at }}">{{ $article->published_at->format('d.m.Y') }}</time>
+                        <span>{{ $article->author }}</span>
                     </div>
                 </div>
             </div>
@@ -61,7 +62,7 @@
             <div class="container">
                 <div class="main__row">
                     <article class="main__content text">
-                        {!! $article->content_html !!}
+                        {!! $article->content !!}
                     </article>
                     <aside>
                         <div class="main__aside">

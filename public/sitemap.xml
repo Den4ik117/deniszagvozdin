@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://deniszagvozdin.ru/</loc>
+        <loc>http://localhost</loc>
         <lastmod>2022-01-31</lastmod>
         <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://deniszagvozdin.ru/articles</loc>
+        <loc>http://localhost/articles</loc>
         <lastmod>2022-01-15</lastmod>
         <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://deniszagvozdin.ru/articles/filmy-kotorye-ponravilis-mne-bolse-vsego</loc>
+        <loc>http://localhost/articles/11-knig-kotorye-ponravilis-i-zapomnilis-mne-bolse-vsego</loc>
         <lastmod>2022-01-06</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://deniszagvozdin.ru/articles/istoriya-sozdaniya-odnoi-erp-sistemy</loc>
+        <loc>http://localhost/articles/delegirovanie-prav-v-laravel-9-bez-ispolzovaniya-storonnix-bibliotek</loc>
+        <lastmod>2022-02-15</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://localhost/articles/filmy-kotorye-ponravilis-mne-bolse-vsego</loc>
         <lastmod>2022-01-06</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://deniszagvozdin.ru/articles/11-knig-kotorye-ponravilis-i-zapomnilis-mne-bolse-vsego</loc>
-        <lastmod>2022-01-06</lastmod>
+        <loc>http://localhost/articles/glubokoe-pogruzenie-v-laravel-livewire</loc>
+        <lastmod>2022-01-21</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://deniszagvozdin.ru/articles/russkii-yazyk-kogda-ispolzovat-tire-dlinnoe-tire-i-defis</loc>
-        <lastmod>2022-01-06</lastmod>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://deniszagvozdin.ru/articles/istoriya-sozdaniya-saita-deniszagvozdinru</loc>
+        <loc>http://localhost/articles/iskusstvo-sozdaniya-veb-prilozenii-kak-naucitsya-delat-potryasayushhie-saity</loc>
         <lastmod>2021-12-23</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://deniszagvozdin.ru/articles/iskusstvo-sozdaniya-veb-prilozenii-kak-naucitsya-delat-potryasayushhie-saity</loc>
+        <loc>http://localhost/articles/istoriya-sozdaniya-odnoi-erp-sistemy</loc>
+        <lastmod>2022-01-06</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://localhost/articles/istoriya-sozdaniya-saita-deniszagvozdinru</loc>
         <lastmod>2021-12-23</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://localhost/articles/kakovo-byt-inogorodnim-studentom-o-pereezde-v-drugoi-gorod-dlya-uceby</loc>
+        <lastmod>2022-01-15</lastmod>
         <changefreq>monthly</changefreq>
     </url>
 </urlset>

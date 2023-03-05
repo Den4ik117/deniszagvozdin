@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Message;
 use App\Models\Article;
+use App\Models\NewArticle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +13,11 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $articles = Article::where('visible', true)->orderBy('priority', 'DESC')->take(3)->get();
+        $articles = NewArticle::with(['files'])
+            ->where('visible', true)
+            ->orderBy('priority', 'DESC')
+            ->take(3)
+            ->get();
 
         return view('index', compact(['articles']));
     }
@@ -20,10 +25,10 @@ class IndexController extends Controller
     public function store(Request $request)
     {
         $validated = Validator::make($request->all(), [
-            'name' => 'required|max:255',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'subject' => 'required|max:255',
-            'message' => 'required|max:2000'
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string|max:2000'
         ], [
             'name.required' => 'Введите своё имя',
             'name.max' => 'Ваше имя слишком длинное',
@@ -46,7 +51,11 @@ class IndexController extends Controller
 
     public function articles()
     {
-        $articles = Article::with('files')->latest()->get();
+        $articles = NewArticle::with(['files'])
+            ->select(['id', 'slug', 'title', 'lead', 'author', 'visible', 'published_at'])
+            ->where('visible', true)
+            ->latest('published_at')
+            ->get();
 
         return view('articles', compact('articles'));
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\NewArticle;
 use Illuminate\Http\Request;
 use Parsedown;
 
@@ -55,7 +56,10 @@ class ArticleController extends Controller
 
     public function show($slug)
     {
-        $article = Article::where('slug', $slug)->firstOrFail();
+//        $article = Article::where('slug', $slug)->firstOrFail();
+        $article = NewArticle::with(['files'])->where('slug', $slug)->firstOrFail();
+
+//        dd($article);
 
         if (!$article->visible && !auth()->check())
             abort(404);

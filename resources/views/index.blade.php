@@ -36,11 +36,11 @@
             overflow: hidden;
         }
     </style>
-    <link rel="stylesheet" href="/css/index-xl.css" media="screen and (min-width: 1200px)">
-    <link rel="stylesheet" href="/css/index-lg.css" media="screen and (min-width: 992px) and (max-width: 1199px)">
-    <link rel="stylesheet" href="/css/index-md.css" media="screen and (min-width: 768px) and (max-width: 991px)">
-    <link rel="stylesheet" href="/css/index-sm.css" media="screen and (min-width: 576px) and (max-width: 767px)">
-    <link rel="stylesheet" href="/css/index-xs.css" media="screen and (max-width: 575px)">
+    <link rel="stylesheet" href="{{ asset('css/index-xl.css') }}" media="screen and (min-width: 1200px)">
+    <link rel="stylesheet" href="{{ asset('css/index-lg.css') }}" media="screen and (min-width: 992px) and (max-width: 1199px)">
+    <link rel="stylesheet" href="{{ asset('css/index-md.css') }}" media="screen and (min-width: 768px) and (max-width: 991px)">
+    <link rel="stylesheet" href="{{ asset('css/index-sm.css') }}" media="screen and (min-width: 576px) and (max-width: 767px)">
+    <link rel="stylesheet" href="{{ asset('css/index-xs.css') }}" media="screen and (max-width: 575px)">
 </head>
 
 <body>
