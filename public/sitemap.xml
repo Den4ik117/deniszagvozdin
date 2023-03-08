@@ -16,6 +16,11 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>http://localhost/articles/about-my-trip-to-kazan</loc>
+        <lastmod>2023-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>http://localhost/articles/delegirovanie-prav-v-laravel-9-bez-ispolzovaniya-storonnix-bibliotek</loc>
         <lastmod>2022-02-15</lastmod>
         <changefreq>monthly</changefreq>
