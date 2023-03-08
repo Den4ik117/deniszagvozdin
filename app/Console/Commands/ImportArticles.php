@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\NewArticle;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
@@ -89,7 +90,7 @@ class ImportArticles extends Command
                 'content' => $markdownConverter->convert($object->body())->getContent(),
                 'visible' => $object->matter('visible', true),
                 'priority' => $object->matter('priority', 0),
-                'published_at' => $object->matter('published'),
+                'published_at' => Carbon::createFromTimestamp($object->matter('published')),
             ]);
 
 //            $this->info($object->matter('other'));
