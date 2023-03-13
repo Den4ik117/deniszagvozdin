@@ -25,8 +25,7 @@
             </li>
             <li>
                 Сообщение:
-                <br>
-                <strong>{!! str_replace(PHP_EOL, '<br>', $validated['message']) !!}</strong>
+                <div style="margin-top: 1rem; font-weight: bold;"><pre style="font-family: sans-serif;">{{ $validated['message'] }}</pre></div>
             </li>
         </ol>
     </div>
