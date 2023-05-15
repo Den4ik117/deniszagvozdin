@@ -11,8 +11,9 @@ class ArticleController extends Controller
         $articles = Article::query()
             ->select(['slug', 'title', 'lead', 'published_at', 'author'])
             ->where('visible', '=', true)
-            ->latest()
+            ->latest('published_at')
             ->get();
+//        dd($articles->split(3));
 
         return view('articles.index', compact(['articles']));
     }

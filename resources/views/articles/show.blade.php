@@ -105,7 +105,8 @@
                     <small>Дата публикации: {{ $article->published_at->format('d.m.Y') }}</small>
                 </div>
                 <article class="prose mx-auto dark:prose-invert">
-                    @include("articles::$article->slug.index")
+                    {!! $article->content !!}
+{{--                    @include("articles::$article->slug.index")--}}
                 </article>
             </div>
         </div>

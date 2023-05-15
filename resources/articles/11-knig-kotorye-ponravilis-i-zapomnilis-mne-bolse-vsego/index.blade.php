@@ -1,5 +1,7 @@
 <h1>Топ 11 книг, которые нравятся мне больше всего</h1>
-<p><img src="{{ Vite::image('Background_1.jpg') }}" alt="Background_1.jpg" loading="lazy"></p>
+
+<p><img src="{{ Vite::asset('resources/articles/11-knig-kotorye-ponravilis-i-zapomnilis-mne-bolse-vsego/0_preview.jpg') }}" alt="Превью статьи" loading="lazy"></p>
+
 <p class="lead">Подборка книг, которые мне запомнились и, возможно, внесли коррективы в мою жизнь, и комментарий к
     ним.</p>
 <h2>11 место. “Книга №1 про психологию” Александр Свияш</h2>

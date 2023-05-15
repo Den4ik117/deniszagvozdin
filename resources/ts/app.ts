@@ -2,5 +2,6 @@ import './main';
 import './articles';
 
 import.meta.glob([
-    '../images/**'
+    '../images/**',
+    '../articles/*/*.(jpg|png|svg|webp)'
 ]);

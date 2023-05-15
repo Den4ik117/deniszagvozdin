@@ -101,7 +101,7 @@
     <main class="min-h-full">
         <div class="max-w-6xl mx-auto rounded py-10 px-4">
             <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
-                @foreach($articles->chunk(3) as $chunk)
+                @foreach($articles->split(3) as $chunk)
                     <div class="flex flex-col gap-6">
                         @foreach($chunk as $article)
                             <a class="shadow hover:shadow-lg dark:shadow-slate-700" href="{{ route('articles.show', $article->slug) }}">
