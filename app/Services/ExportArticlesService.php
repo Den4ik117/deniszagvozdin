@@ -26,7 +26,7 @@ class ExportArticlesService
                 'lead' => $article->lead,
                 'slug' => $article->slug,
                 'author' => $article->author,
-                'content' => '',
+//                'content' => null,
                 'published_at' => Carbon::createFromFormat('Y-m-d', $article->published),
                 'priority' => $article->priority,
                 'visible' => true,

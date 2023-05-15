@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('lead');
             $table->string('slug')->unique()->index();
             $table->string('author');
-            $table->mediumText('content');
+            $table->mediumText('content')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->integer('priority');
             $table->boolean('visible');
