@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Article;
+use App\Models\ArticleConfig;
 use App\Models\Config;
 use DOMDocument;
 use Illuminate\Support\Carbon;
@@ -13,11 +14,13 @@ class ExportArticlesService
 {
     private Config $config;
     private Parsedown $parsedown;
+    private DOMDocument $document;
 
     public function __construct()
     {
         $this->config = new Config();
         $this->parsedown = new Parsedown();
+        $this->document = new DOMDocument();
     }
 
     public function export(): void
@@ -25,28 +28,13 @@ class ExportArticlesService
         $this->deleteAllArticleIfTheyExist();
 
         foreach ($this->config->data as $article) {
-            $_content = null;
-            $filename = resource_path('articles/' . $article->slug . '/index.md');
-            if (file_exists($filename)) {
-                $content = file_get_contents($filename);
-                $content = $this->parsedown->text($content);
-                $html = new DOMDocument();
-                $html->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
-                $tags = $html->getElementsByTagName('img');
-                foreach ($tags as $tag) {
-                    $filepath = 'resources/articles/' . $article->slug . '/' . $tag->getAttribute('src');
-                    $tag->setAttribute('src', Vite::asset($filepath));
-                }
-                $_content = $html->saveHTML();
-            }
-
             Article::query()->create([
                 'title' => $article->title,
                 'description' => $article->description,
                 'lead' => $article->lead,
                 'slug' => $article->slug,
                 'author' => $article->author,
-                'content' => $_content,
+                'content' => $this->getContentFromArticleConfig($article),
                 'published_at' => Carbon::createFromFormat('Y-m-d', $article->published),
                 'priority' => $article->priority,
                 'visible' => true,
@@ -61,5 +49,24 @@ class ExportArticlesService
         if ($articles->isNotEmpty()) {
             $articles->toQuery()->delete();
         }
+    }
+
+    private function getContentFromArticleConfig(ArticleConfig $article): string|null
+    {
+        $filename = resource_path('articles/' . $article->slug . '/index.md');
+        if (file_exists($filename)) {
+            $content = file_get_contents($filename);
+            $content = $this->parsedown->text($content);
+            $this->document->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+            foreach ($this->document->getElementsByTagName('img') as $tag) {
+                $filepath = 'resources/articles/' . $article->slug . '/' . $tag->getAttribute('src');
+                $tag->setAttribute('src', Vite::asset($filepath));
+            }
+            $content = $this->document->saveHTML();
+
+            return $content === false ? null : $content;
+        }
+
+        return null;
     }
 }
