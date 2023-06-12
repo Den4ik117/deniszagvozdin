@@ -53,20 +53,30 @@ class ExportArticlesService
 
     private function getContentFromArticleConfig(ArticleConfig $article): string|null
     {
-        $filename = resource_path('articles/' . $article->slug . '/index.md');
-        if (file_exists($filename)) {
-            $content = file_get_contents($filename);
-            $content = $this->parsedown->text($content);
-            $this->document->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
-            foreach ($this->document->getElementsByTagName('img') as $tag) {
-                $filepath = 'resources/articles/' . $article->slug . '/' . $tag->getAttribute('src');
-                $tag->setAttribute('src', Vite::asset($filepath));
-            }
-            $content = $this->document->saveHTML();
+        $filename = resource_path("articles/$article->slug/index.md");
 
-            return $content === false ? null : $content;
-        }
+        if (!file_exists($filename)) return null;
 
-        return null;
+        $content = file_get_contents($filename);
+
+        $content = preg_replace_callback("/!\[(.+)\]\((.+)\)/", function ($matches) use ($article) {
+            $src = Vite::asset("resources/articles/$article->slug/$matches[2]");
+            $alt = $matches[1];
+            return "![$alt]($src)";
+        }, $content);
+
+//        $content = preg_replace("/!\[(.+)\]\((.+)\)/", "![$1](resources/articles/$article->slug/$2)", $content);
+
+//        dd($content);
+
+        return $this->parsedown->text($content);
+//        $this->document->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+//        foreach ($this->document->getElementsByTagName('img') as $tag) {
+//            $filepath = 'resources/articles/' . $article->slug . '/' . $tag->getAttribute('src');
+//            $tag->setAttribute('src', Vite::asset($filepath));
+//        }
+//        $content = $this->document->saveHTML();
+
+//        return $content === false ? null : $content;
     }
 }

@@ -3,5 +3,5 @@ import './articles';
 
 import.meta.glob([
     '../images/**',
-    '../articles/*/*.(jpg|png|svg|webp)'
+    '../articles/*/*.(jpg|png|svg|webp|gif)'
 ]);
