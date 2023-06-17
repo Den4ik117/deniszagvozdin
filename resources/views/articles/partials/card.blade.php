@@ -1,5 +1,5 @@
 <article class="shadow hover:shadow-lg dark:shadow-slate-700 relative">
-    <img class="w-full" src="{{ $article->image_content }}" alt="Превью статьи с названием «{{ $article->title }}»" loading="lazy">
+    <img class="w-full" src="{{ $article->image_content }}" alt="Превью статьи с названием «{{ $article->title }}»" width="100%" loading="lazy">
     <div class="border-x border-b dark:border-slate-800 p-4 flex flex-col gap-2 dark:bg-gray-900">
         <h2 class="sm:text-lg text-base font-bold leading-6">{{ $article->title }}</h2>
         <p class="sm:text-sm text-xs text-gray-500 dark:text-gray-300">{{ $article->lead }}</p>

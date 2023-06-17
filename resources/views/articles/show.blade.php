@@ -72,5 +72,6 @@
     </main>
 
     @vite('resources/ts/app.ts')
+    @include('layouts.metrics')
 </body>
 </html>
