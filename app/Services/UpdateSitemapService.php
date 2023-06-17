@@ -10,12 +10,12 @@ class UpdateSitemapService
     public function update(): void
     {
         $urls = Article::query()
-            ->select(['published_at', 'slug'])
+            ->select(['updated_at', 'slug'])
             ->where('visible', '=', true)
             ->get()
             ->map(fn (Article $article) => [
                 'loc' => route('articles.show', $article->slug),
-                'lastmod' => $article->published_at->format('Y-m-d')
+                'lastmod' => $article->updated_at->format('Y-m-d')
             ])->push([
                 'loc' => route('index'),
                 'lastmod' => now()->format('Y-m-d'),
