@@ -51,8 +51,8 @@
     @include('layouts.header')
 
     <main class="min-h-full">
-        <div class="max-w-prose mx-auto rounded py-10 px-4">
-            <div class="flex flex-col gap-6">
+        <div class="max-w-prose mx-auto rounded md:py-10 py-6 px-4">
+            <div class="">
                 <div class="text-sm">
                     <a class="hover:underline" href="{{ route('index') }}">Главная</a>
                     <span class="px-1 select-none">»</span>
@@ -60,11 +60,11 @@
                     <span class="px-1 select-none">»</span>
                     <h1 class="inline">{{ $article->title }}</h1>
                 </div>
-                <div class="flex flex-col gap-1">
+                <div class="flex flex-col gap-1 mt-6">
                     <small>Автор: {{ $article->author }}</small>
                     <small>Дата публикации: {{ $article->published_at->format('d.m.Y') }}</small>
                 </div>
-                <article class="prose mx-auto dark:prose-invert">
+                <article class="prose mx-auto dark:prose-invert w-full">
                     {!! $article->content !!}
                 </article>
             </div>
