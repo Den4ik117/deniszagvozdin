@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пик IT</title>
+    <title>Блог Дениса Загвоздина</title>
     @vite('resources/css/app.css')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Сайт-портфолио и по совместительству блог Дениса Загвоздина. создание сайтов под ключ ― лендинг, сайтов-визитка, сайт для предпринимателя, сайт для компании, блог">
+    <meta name="description" content="Сайт-портфолио и блог Дениса Загвоздина. Здесь вы найдёте информацию обо мне, статьи и мои проекты">
     <meta property="og:type" content="site">
     <meta property="og:title" content="Сайт-портфолио, блог Дениса Загвоздина">
-    <meta property="og:description" content="Сайт-портфолио и по совместительству блог Дениса Загвоздина. создание сайтов под ключ ― лендинг, сайтов-визитка, сайт для предпринимателя, сайт для компании, блог">
-    <meta property="og:url" content="https://deniszagvozdin.ru">
-    <meta property="og:site_name" content="Создание сайтов под ключ от Full-stack разбработчика Дениса Загвоздина">
-    <meta property="og:image" content="https://deniszagvozdin.ru/images/og-image.jpg">
+    <meta property="og:description" content="Сайт-портфолио и блог Дениса Загвоздина. Здесь вы найдёте информацию обо мне, статьи и мои проекты">
+    <meta property="og:url" content="{{ config('app.url') }}">
+    <meta property="og:site_name" content="Блог Дениса Загвоздина">
+    <meta property="og:image" content="{{ Vite::asset('resources/images/OpenGraphImage.jpg') }}">
     <meta property="og:locale" content="ru_RU">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org/",
             "@type": "Person",
             "name": "Denis Zagvozdin",
-            "url": "https://deniszagvozdin.ru/",
-            "image": "https://deniszagvozdin.ru/images/og-image.jpg",
+            "url": "{{ config('app.url') }}",
+            "image": "{{ Vite::asset('resources/images/OpenGraphImage.jpg') }}",
             "sameAs": [
                 "https://www.youtube.com/channel/UCbxqhdu5HwhZC2rE-a1MwrQ",
                 "https://github.com/Den4ik117",
                 "https://deniszagvozdin.ru"
             ],
-            "jobTitle": "Создание сайтов под ключ"
+            "jobTitle": "Блог Дениса Загвоздина"
         }
     </script>
 </head>
@@ -90,9 +90,9 @@
                         </button>
                     </div>
                     <form id="submit-form" class="p-4 md:p-16 flex flex-col gap-4 bg-black" method="POST">
-                        <input class="border-2 border-white px-5 py-4 bg-transparent text-white font-semibold focus:outline-none focus:border-gray-400" type="text" name="name" placeholder="Введите ваше имя" required>
-                        <input class="border-2 border-white px-5 py-4 bg-transparent text-white font-semibold focus:outline-none focus:border-gray-400" type="email" name="email" placeholder="Введите вашу почту" required>
-                        <textarea class="border-2 border-white px-5 py-4 bg-transparent text-white font-semibold focus:outline-none focus:border-gray-400" rows="3" name="content" placeholder="Опишите ваш запрос" required></textarea>
+                        <input class="border-2 border-white px-5 py-4 bg-transparent text-white font-semibold focus:outline-none focus:border-gray-400" type="text" name="name" placeholder="Введите ваше имя" aria-label="Имя" required>
+                        <input class="border-2 border-white px-5 py-4 bg-transparent text-white font-semibold focus:outline-none focus:border-gray-400" type="email" name="email" placeholder="Введите вашу почту" aria-label="Почта" required>
+                        <textarea class="border-2 border-white px-5 py-4 bg-transparent text-white font-semibold focus:outline-none focus:border-gray-400" rows="3" name="content" placeholder="Опишите ваш запрос" aria-label="Текст обращения" required></textarea>
                         <button class="border-2 border-white p-4 bg-orange-500 hover:bg-orange-600 text-lg font-semibold" type="submit">Оставить заявку</button>
                         <span id="success-form-text" class="text-center text-sm font-semibold text-green-500 hidden"></span>
                         <span id="error-form-text" class="text-center text-sm font-semibold text-red-500 hidden"></span>
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="px-4 py-3 text-xl font-bold bg-blue-500 hover:bg-blue-600 text-center" href="{{ route('articles.index') }}">Кладезь знаний [Блог]</a>
+                    <a class="px-4 py-3 text-xl font-bold bg-blue-500 hover:bg-blue-600 text-center" href="{{ route('articles.index') }}">Кладезь знаний [Статьи]</a>
                 </div>
             </section>
 
@@ -265,7 +265,7 @@
                 <div class="grid grid-rows-4 gap-1.5 h-full">
                     <button id="nav-button-about-me" class="flex items-center justify-center bg-black text-xl sm:text-2xl font-bold" type="button">Обо мне</button>
                     <button id="nav-button-my-projects" class="flex items-center justify-center bg-black text-xl sm:text-2xl font-bold" type="button">Мои работы</button>
-                    <a class="flex items-center justify-center bg-black text-xl sm:text-2xl font-bold" href="{{ route('articles.index') }}">Блог</a>
+                    <a class="flex items-center justify-center bg-black text-xl sm:text-2xl font-bold" href="{{ route('articles.index') }}">Статьи</a>
                     <button id="nav-button-submit" class="flex items-center justify-center bg-blue-500 text-xl sm:text-2xl font-bold" type="button">Оставить заявку</button>
                 </div>
             </nav>
@@ -313,11 +313,11 @@
 
 <script>
     window.backgrounds = [
-        '{{ Vite::image('Background_1.jpg') }}',
-        '{{ Vite::image('Background_2.jpg') }}',
-        '{{ Vite::image('Background_3.jpg') }}',
-        '{{ Vite::image('Background_4.jpg') }}',
-        '{{ Vite::image('Background_5.jpg') }}',
+        '{{ Vite::image('Background_1.webp') }}',
+        '{{ Vite::image('Background_2.webp') }}',
+        '{{ Vite::image('Background_3.webp') }}',
+        '{{ Vite::image('Background_4.webp') }}',
+        '{{ Vite::image('Background_5.webp') }}',
     ]
 </script>
 @vite('resources/ts/app.ts')

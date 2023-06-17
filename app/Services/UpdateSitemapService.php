@@ -9,26 +9,20 @@ class UpdateSitemapService
 {
     public function update(): void
     {
-        $articleURLs = Article::query()
+        $urls = Article::query()
             ->select(['published_at', 'slug'])
             ->where('visible', '=', true)
             ->get()
             ->map(fn (Article $article) => [
                 'loc' => route('articles.show', $article->slug),
                 'lastmod' => $article->published_at->format('Y-m-d')
-            ]);
-
-        $urls = [
-            [
+            ])->push([
                 'loc' => route('index'),
                 'lastmod' => now()->format('Y-m-d'),
-            ],
-            [
+            ], [
                 'loc' => route('articles.index'),
                 'lastmod' => now()->format('Y-m-d'),
-            ],
-            ...$articleURLs
-        ];
+            ]);
 
         $sitemap = View::make('sitemap', compact(['urls']))->render();
 

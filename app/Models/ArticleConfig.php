@@ -10,6 +10,7 @@ class ArticleConfig
     public readonly string $slug;
     public readonly string $author;
     public readonly string $description;
+    public readonly string $image;
     public readonly string $lead;
     public readonly int $priority;
     public readonly string $published;
@@ -20,6 +21,7 @@ class ArticleConfig
         $this->slug = Arr::get($data, 'slug', '');
         $this->author = Arr::get($data, 'author', '');
         $this->description = Arr::get($data, 'description', '');
+        $this->image = Arr::get($data, 'image', '');
         $this->lead = Arr::get($data, 'lead', '');
         $this->priority = Arr::get($data, 'priority', 0);
         $this->published = Arr::get($data, 'published', now()->format('Y-d-m'));

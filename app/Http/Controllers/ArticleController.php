@@ -9,7 +9,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::query()
-            ->select(['slug', 'title', 'lead', 'published_at', 'author'])
+            ->select(['slug', 'title', 'lead', 'image_content', 'published_at', 'author'])
             ->where('visible', '=', true)
             ->latest('published_at')
             ->get();

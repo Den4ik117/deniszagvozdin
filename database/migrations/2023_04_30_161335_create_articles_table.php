@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique()->index();
             $table->string('author');
             $table->mediumText('content')->nullable();
+            $table->string('image_content');
             $table->timestamp('published_at')->nullable();
             $table->integer('priority');
             $table->boolean('visible');

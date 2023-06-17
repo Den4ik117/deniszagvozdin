@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\ArticleConfig;
 use App\Models\Config;
 use DOMDocument;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Vite;
 use Parsedown;
@@ -14,13 +15,11 @@ class ExportArticlesService
 {
     private Config $config;
     private Parsedown $parsedown;
-    private DOMDocument $document;
 
     public function __construct()
     {
         $this->config = new Config();
         $this->parsedown = new Parsedown();
-        $this->document = new DOMDocument();
     }
 
     public function export(): void
@@ -34,7 +33,8 @@ class ExportArticlesService
                 'lead' => $article->lead,
                 'slug' => $article->slug,
                 'author' => $article->author,
-                'content' => $this->getContentFromArticleConfig($article),
+                'content' => $this->getContent($article),
+                'image_content' => $this->getImageContent($article),
                 'published_at' => Carbon::createFromFormat('Y-m-d', $article->published),
                 'priority' => $article->priority,
                 'visible' => true,
@@ -51,7 +51,7 @@ class ExportArticlesService
         }
     }
 
-    private function getContentFromArticleConfig(ArticleConfig $article): string|null
+    private function getContent(ArticleConfig $article): string|null
     {
         $filename = resource_path("articles/$article->slug/index.md");
 
@@ -65,18 +65,13 @@ class ExportArticlesService
             return "![$alt]($src)";
         }, $content);
 
-//        $content = preg_replace("/!\[(.+)\]\((.+)\)/", "![$1](resources/articles/$article->slug/$2)", $content);
-
-//        dd($content);
-
         return $this->parsedown->text($content);
-//        $this->document->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
-//        foreach ($this->document->getElementsByTagName('img') as $tag) {
-//            $filepath = 'resources/articles/' . $article->slug . '/' . $tag->getAttribute('src');
-//            $tag->setAttribute('src', Vite::asset($filepath));
-//        }
-//        $content = $this->document->saveHTML();
+    }
 
-//        return $content === false ? null : $content;
+    private function getImageContent(ArticleConfig $article): string
+    {
+        $images = array_diff(scandir(resource_path("articles/$article->slug")), ['.', '..', 'index.md']);
+
+        return Vite::asset("resources/articles/$article->slug/$images[2]");
     }
 }

@@ -13,6 +13,7 @@ class Article extends Model
         'slug',
         'author',
         'content',
+        'image_content',
         'published_at',
         'priority',
         'visible',
