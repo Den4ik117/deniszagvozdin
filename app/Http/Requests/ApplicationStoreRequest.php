@@ -26,7 +26,7 @@ class ApplicationStoreRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'content' => 'required|string|min:100|max:2000',
+            'content' => 'required|string|min:50|max:2000',
         ];
     }
 
@@ -41,7 +41,7 @@ class ApplicationStoreRequest extends FormRequest
             'email.max' => 'Поле «Почта» должно быть не больше, чем 255 символов.',
             'content.required' => 'Текст вашего запроса является обязательным.',
             'content.string' => 'Текст вашего запроса должен быть строкой.',
-            'content.min' => 'Текст вашего запроса не должен быть меньше, чем 100 символов.',
+            'content.min' => 'Текст вашего запроса не должен быть меньше, чем 50 символов.',
             'content.max' => 'Текст вашего запроса не должен быть больше, чем 2000 символов.',
         ];
     }

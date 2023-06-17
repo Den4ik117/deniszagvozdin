@@ -6,6 +6,8 @@ use App\Events\ApplicationCreated;
 use App\Http\Requests\ApplicationStoreRequest;
 use App\Models\Application;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Validation\ValidationException;
 
 class IndexController extends Controller
 {
@@ -16,6 +18,12 @@ class IndexController extends Controller
 
     public function store(ApplicationStoreRequest $request): Response
     {
+        if (RateLimiter::tooManyAttempts('send-message:'.$request->ip(), 1)) {
+            $seconds = RateLimiter::availableIn('send-message:'.$request->ip());
+
+            throw ValidationException::withMessages(['error' => "Отправлять сообщения можно раз в 15 минут. Следующая попытка через $seconds сек."]);
+        }
+
         $application = Application::query()->create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -25,6 +33,8 @@ class IndexController extends Controller
         ]);
 
         event(new ApplicationCreated($application));
+
+        RateLimiter::hit('send-message:'.$request->ip(), 15 * 60);
 
         return response()->noContent();
     }
