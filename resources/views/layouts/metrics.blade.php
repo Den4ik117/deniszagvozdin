@@ -1,5 +1,5 @@
 @production
-    @if (app('app.url') === 'https://deniszagvozdin.ru')
+    @if (config('app.url') === 'https://deniszagvozdin.ru')
         <!-- Yandex.Metrika counter -->
         <script type="text/javascript" >
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
