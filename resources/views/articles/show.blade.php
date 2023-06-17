@@ -39,7 +39,7 @@
             "name": "{{ $article->author }}",
             "logo": {
               "@type": "ImageObject",
-              "url": "{{ Vite::asset('resources/images/DenisZagvozdinPhoto.png') }}"
+              "url": "{{ Vite::asset('resources/images/DenisZagvozdinPhoto.webp') }}"
             }
           },
           "datePublished": "{{ $article->published_at->format('Y-m-d') }}",

@@ -41,7 +41,7 @@
         <header class="bg-black md:px-10 px-3 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-6">
-                    <button id="header-button-menu" class="group border-2 border-white p-3 grid grid-cols-2 gap-1 hover:bg-blue-500" type="button">
+                    <button id="header-button-menu" class="group border-2 border-white p-3 grid grid-cols-2 gap-1 hover:bg-blue-500" type="button" aria-label="Меню">
                         <span class="bg-white rounded h-4 w-4"></span>
                         <span class="bg-white rounded h-4 w-4"></span>
                         <span class="bg-white rounded h-4 w-4"></span>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="flex items-center gap-6">
-                    <button id="header-button-about-me" class="border-2 border-white px-4 h-16 text-xl font-bold hover:bg-blue-500 flex items-center gap-2 fill-white" type="button">
+                    <button id="header-button-about-me" class="border-2 border-white px-4 h-16 text-xl font-bold hover:bg-blue-500 flex items-center gap-2 fill-white" type="button" aria-label="Обо мне">
                         <svg class="w-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title/><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm-.5,3A1.5,1.5,0,1,1,10,6.5,1.5,1.5,0,0,1,11.5,5ZM14,18H13a2,2,0,0,1-2-2V12a1,1,0,0,1,0-2h1a1,1,0,0,1,1,1v5h1a1,1,0,0,1,0,2Z" /></svg>
                         <span class="xl:block hidden">Обо мне</span>
                     </button>
@@ -61,7 +61,7 @@
                         <img src="{{ Vite::image('icon-img.svg') }}" alt="icon-img">
                     </button>
                     <span class="w-0.5 h-12 bg-white md:block hidden"></span>
-                    <button id="header-button-submit" class="border-2 border-white px-4 h-16 text-xl font-bold bg-blue-500 hover:bg-transparent flex items-center gap-2 stroke-white" type="button">
+                    <button id="header-button-submit" class="border-2 border-white px-4 h-16 text-xl font-bold bg-blue-500 hover:bg-transparent flex items-center gap-2 stroke-white" type="button" aria-label="Оставить заявку">
                         <svg class="w-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title/><g data-name="18-paper" id="_18-paper"><path class="cls-1" d="M27,5V3a2,2,0,0,0-2-2H7A2,2,0,0,0,5,3V29a2,2,0,0,0,2,2H25a2,2,0,0,0,2-2V19"/><line class="cls-1" x1="14" x2="18" y1="27" y2="27"/><polygon class="cls-1" points="22.75 19.25 19 20 19.75 16.25 28 8 31 11 22.75 19.25"/><line class="cls-1" x1="16" x2="9" y1="20" y2="20"/><line class="cls-1" x1="9" x2="17" y1="16" y2="16"/><line class="cls-1" x1="9" x2="19" y1="12" y2="12"/></g></svg>
                         <span class="xl:block hidden">Оставить заявку</span>
                     </button>
@@ -85,7 +85,7 @@
                 <div class="grid grid-rows-[min-content_1fr] gap-1.5 h-full overflow-y-auto overflow-x-hidden">
                     <div class="grid grid-cols-[1fr_min-content] gap-1.5 text-black">
                         <div class="flex-1 font-sans-russo pl-4 md:pl-16 flex items-center bg-orange-500 text-2xl md:text-3xl">Оставить заявку</div>
-                        <button id="submit-button-close" class="flex-shrink-0 p-2 sm:p-4 bg-orange-500 hover:bg-blue-500 hover:fill-white" type="button">
+                        <button id="submit-button-close" class="flex-shrink-0 p-2 sm:p-4 bg-orange-500 hover:bg-blue-500 hover:fill-white" type="button" aria-label="Закрыть">
                             <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
                         </button>
                     </div>
@@ -105,13 +105,13 @@
                 <div class="grid grid-rows-[min-content_1fr_min-content] gap-1.5 h-full overflow-y-auto overflow-x-hidden">
                     <div class="grid grid-cols-[1fr_min-content] gap-1.5 text-black">
                         <div class="flex-1 font-sans-russo pl-4 md:pl-16 flex items-center bg-orange-500 text-2xl md:text-3xl">Обо мне</div>
-                        <button id="about-button-close" class="flex-shrink-0 p-2 sm:p-4 bg-orange-500 hover:bg-blue-500 hover:fill-white" type="button">
+                        <button id="about-button-close" class="flex-shrink-0 p-2 sm:p-4 bg-orange-500 hover:bg-blue-500 hover:fill-white" type="button" aria-label="Закрыть">
                             <svg class="w-[40px] h-[40px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
                         </button>
                     </div>
                     <div class="p-4 md:p-16 bg-black">
                         <div class="grid sm:grid-cols-[5fr_9fr] grid-cols-1 items-center gap-4">
-                            <img class="sm:w-full w-1/2 mx-auto rounded" src="{{ Vite::image('DenisZagvozdinPhoto.png') }}" alt="Фото Загвоздина Дениса">
+                            <img class="sm:w-full w-1/2 mx-auto rounded" src="{{ Vite::image('DenisZagvozdinPhoto.webp') }}" alt="Фото Загвоздина Дениса">
                             <div class="flex flex-col gap-2 indent-8 text-justify font-medium text-sm md:text-base">
                                 <p>Привет! Меня зовут Денис, я создаю сайты. Программирование стало моим хобби ещё в 2018 году, но в какой-то момент это переросло во что-то более существенное.</p>
                                 <p>В 2019 году я открыл для себя фриланс. С тех пор и до 2022 года мне с заказчиками удалось реализовать 2 крупных сайта, которые существуют и приносят пользу по сей день. Узнать о моих проектах больше можно в разделе «Мои работы».</p>
@@ -127,7 +127,7 @@
                 <div class="grid grid-rows-[min-content_1fr] gap-1.5 h-full overflow-y-auto overflow-x-hidden">
                     <div id="my-works" class="grid grid-cols-[1fr_min-content] gap-1.5 text-black">
                         <div class="flex-1 font-sans-russo pl-4 md:pl-16 flex items-center bg-orange-500 text-2xl md:text-3xl">Мои работы</div>
-                        <button class="button-close flex-shrink-0 p-2 sm:p-4 bg-orange-500 hover:bg-blue-500 hover:fill-white" type="button">
+                        <button class="button-close flex-shrink-0 p-2 sm:p-4 bg-orange-500 hover:bg-blue-500 hover:fill-white" type="button" aria-label="Закрыть">
                             <svg class="w-[40px] h-[40px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
                         </button>
                     </div>
@@ -136,7 +136,7 @@
                             <svg width="40" height="40" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g id="Layer_1"/><g id="icons"><path class="st0" d="M16.4,29.8l1.5-1.5c0.3-0.3,0.3-0.7,0-1l-9.4-9.5h20.9c0.4,0,0.7-0.3,0.7-0.7v-2.1   c0-0.4-0.3-0.7-0.7-0.7H8.4l9.4-9.5c0.3-0.3,0.3-0.7,0-1l-1.5-1.5c-0.3-0.3-0.7-0.3-1,0L2.2,15.5c-0.3,0.3-0.3,0.7,0,1l13.1,13.3   C15.6,30.1,16.1,30.1,16.4,29.8z" id="backward_1_"/></g></svg>
                         </button>
                         <div id="title-output" class="font-sans-russo px-4 py-2 flex items-center bg-orange-500 text-2xl md:text-3xl"></div>
-                        <button class="button-close flex-shrink-0 p-2 sm:p-4 bg-orange-500 hover:bg-blue-500 hover:fill-white" type="button">
+                        <button class="button-close flex-shrink-0 p-2 sm:p-4 bg-orange-500 hover:bg-blue-500 hover:fill-white" type="button" aria-label="Закрыть">
                             <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
                         </button>
                     </div>
@@ -296,16 +296,16 @@
 
         <div class="bg-white sm:hidden grid grid-cols-4 gap-1.5">
             <a class="w-full h-14 bg-black flex items-center justify-center hover:bg-blue-500" href="https://t.me/denchik1170" target="_blank">
-                <img class="h-6" src="{{ Vite::image('icon-tg.svg') }}" alt="icon-tg">
+                <img class="h-6" height="24" width="24" src="{{ Vite::image('icon-tg.svg') }}" alt="icon-tg">
             </a>
             <a class="w-full h-14 bg-black flex items-center justify-center hover:bg-blue-500" href="https://vk.com/public216979635" target="_blank">
-                <img class="h-5" src="{{ Vite::image('icon-vk.svg') }}" alt="icon-vk">
+                <img class="h-5" height="20" width="20" src="{{ Vite::image('icon-vk.svg') }}" alt="icon-vk">
             </a>
             <a class="w-full h-14 bg-black flex items-center justify-center hover:bg-blue-500" href="tel:+79080675295">
-                <img class="h-6" src="{{ Vite::image('icon-phone.svg') }}" alt="icon-phone">
+                <img class="h-6" height="24" width="24" src="{{ Vite::image('icon-phone.svg') }}" alt="icon-phone">
             </a>
             <a class="w-full h-14 bg-black flex items-center justify-center hover:bg-blue-500" href="mailto:my@deniszagvozdin.ru">
-                <img class="h-8" src="{{ Vite::image('icon-email.svg') }}" alt="icon-email">
+                <img class="h-8" height="32" width="32" src="{{ Vite::image('icon-email.svg') }}" alt="icon-email">
             </a>
         </div>
     </div>

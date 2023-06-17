@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <meta property="description" content="Статьи Загвоздина Дениса: события из жизни, интересы, мысли, идеи, уроки, создание сайтов">
+    <meta name="description" content="Статьи Загвоздина Дениса: события из жизни, интересы, мысли, идеи, уроки, создание сайтов">
     <meta property="og:type" content="product">
     <meta property="og:title" content="Статьи | Denis Zagvozdin">
     <meta property="og:description" content="Статьи Загвоздина Дениса: события из жизни, интересы, мысли, идеи, уроки, создание сайтов">
