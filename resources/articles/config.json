@@ -80,6 +80,15 @@
             "lead": "Сейчас я расскажу историю о том, как я переехал в новый город. Всё началось с того, что меня не поселили в общежитие при моем учебном заведении...",
             "priority": 0,
             "published": "2022-01-15"
+        },
+        {
+            "title": "Laravel + VueJS: лучшие практики и подходы к написанию кода",
+            "slug": "laravel-i-vuejs-luchshie-praktiki-i-podhody-k-napisaniyu-koda",
+            "author": "Denis Zagvozdin",
+            "description": "",
+            "lead": "",
+            "priority": 0,
+            "published": "2022-08-20"
         }
     ]
 }
