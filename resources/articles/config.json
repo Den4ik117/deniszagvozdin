@@ -82,13 +82,13 @@
             "published": "2022-01-15"
         },
         {
-            "title": "Laravel + VueJS: лучшие практики и подходы к написанию кода",
-            "slug": "laravel-i-vuejs-luchshie-praktiki-i-podhody-k-napisaniyu-koda",
+            "title": "Laravel + VueJS: структура папок и файлов и лучшие практики из опыта",
+            "slug": "laravel-i-vuejs-struktura-papok-i-faylov-i-luchshie-praktiki-iz-opyta",
             "author": "Denis Zagvozdin",
-            "description": "",
-            "lead": "",
+            "description": "Структура папок и файлов для проектов, написанных на Laravel и VueJS. С статье собраны лучшие подходы, полученные методом проб и ошибок",
+            "lead": "Структура папок и файлов для проектов, написанных на Laravel и VueJS. С статье собраны лучшие подходы, полученные методом проб и ошибок",
             "priority": 0,
-            "published": "2022-08-20"
+            "published": "2023-10-11"
         }
     ]
 }

@@ -1,5 +1,53 @@
 ![Главное изображение статьи о подходах к написанию кода на Laravel + VueJS](00_preview.webp)
 
+Я считаю, что лучшая структура папок для Laravel + VueJS такая:
+
+```
+resources/
+|
+|- views/
+|    |- admin/
+|    |    |- layouts/
+|    |    |    |- app.blade.php
+|    |    |    |- aside.blade.php
+|    |    |    |- header.blade.php
+|    |    |
+|    |    |- users/
+|    |    |    |- partials/
+|    |    |    |    |- form.blade.php
+|    |    |    |- index.blade.php
+|    |    |    |- create.blade.php
+|    |    |    |- edit.blade.php
+|    |
+|    |- articles/
+|    |    |- index.blade.php
+|    |    |- show.blade.php
+|    |
+|    |- index.blade.php
+|
+|- js/
+|    |- pages/
+|    |    |- login/
+|    |    |    |- Login.vue
+|    |    |    ...
+|    |    |    |- index.js
+|    |
+|    |- modules/
+|    |    |- login-form-module/
+|    |    |    |- LoginFormModule.vue
+|    |    |    ...
+|    |    |    |- index.js
+|    |
+|    |- components/
+|    |    ...
+|    |
+|    |- ui/
+|    |    ...
+|    |- app.js
+```
+
+## Вступление
+
 Ежедневная работа над большими и сложными проектами подталкивает меня улучшать практики написания кода,
 работать над его масшабируемостью.
 
@@ -60,27 +108,8 @@
 - `/admin/users/index.blade.php`
 - `/admin/users/create.blade.php`
 - `/admin/users/edit.blade.php`
-- `/tasks/index.blade.php`
+- `/articles/index.blade.php`
 - `index.blade.php`
-
-```
-views/
-|
-|- admin/
-|    |- users/
-|    |    |- partials/
-|    |    |    |- form.blade.php
-|    |    |- index.blade.php
-|    |    |- create.blade.php
-|    |    |- edit.blade.php
-|
-|- tasks/
-|    |- index.blade.php
-|    |- create.blade.php
-|    |- edit.blade.php
-|
-|- index.blade.php
-```
 
 Routing для страниц:
 
@@ -102,7 +131,9 @@ Routing для страниц:
 
 ### Стили
 
-Вдохновлён [статьёй](https://dev.to/dostonnabotov/a-modern-sass-folder-structure-330f).
+Когда дело доходит до стилей, то к папке `scss` тоже применяется определённая структура файлов.
+
+Вдохновился [этой статьей](https://dev.to/dostonnabotov/a-modern-sass-folder-structure-330f).
 
 Структура `resources/scss`:
 
@@ -115,104 +146,3 @@ Routing для страниц:
 - `/themes`
 - `/vendors`
 - `/app.scss`
-
-На конкретном примере станет понятнее. [Исходный код](https://github.com/Den4ik117/laravel-vue-architectural-methodologies).
-
-## Проект по шагам
-
-### Перед установкой
-
-Мы напишем ToDo-лист с админкой и простой регистрацией. Цель не показать, как писать код, а цель — показать как его
-структурировать, чтобы получить на выходе масштабируемое приложение.
-
-В качестве сборки статики мы будем использовать Vite.
-
-Бонусом я показываю пример структурирования sass/scss-кода, поэтому установка `sass` — необязательна.
-
-### Процесс установки проекта
-
-1. `composer create-project laravel/laravel laravel-vue-architectural-methodologies`
-2. `cd laravel-vue-architectural-methodologies`
-3. Создаём базу данных, данные для входа пишем в `.env`
-4. `npm install`
-5. `npm install -D sass vue @vitejs/plugin-vue`
-
-### Настройка
-
-1. `php artisan make:controller IndexController`
-2. В файле `routes/web.php`:
-
-```php
-Route::get('/', [IndexController::class, 'index'])->name('index');
-```
-
-3. Файл `app/Http/Controllers/IndexController`:
-
-```php
-<?php
-
-namespace App\Http\Controllers;
-
-class IndexController extends Controller
-{
-    public function index()
-    {
-        return view('index');
-    }
-}
-```
-
-4. Подготовим layout для страниц (папка `resources/views/layouts`), `resources/views/layouts/app.blade.php`:
-
-```html
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', config('app.name'))</title>
-    @yield('head')
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
-</head>
-<body>
-<div class="wrapper app" v-cloak>
-    @include('layouts.header')
-
-    @include('layouts.aside')
-
-    @yield('content')
-
-    @include('layouts.footer')
-</div>
-
-@stack('scripts')
-</body>
-</html>
-```
-
-5. Подготовим всё для работы с VueJS, `resources/js/app.js`:
-
-```js
-import { createApp } from 'vue/dist/vue.esm-bundler';
-
-const app = createApp({
-    components: {},
-});
-
-document.querySelector('.app') && app.mount('.app');
-
-```
-
-6. Подготовим всё для стилизации (см. папку `resources/scss`), `resources/scss/app.scss`:
-
-```scss
-@use './abstracts';
-@use './base';
-@use './components';
-@use './layout';
-@use './vendors';
-@use './utilities';
-@use './pages';
-```
-
